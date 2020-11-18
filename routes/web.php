@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\langdingpageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +24,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//
+Route::get('/', [App\Http\Controllers\langdingpageController::class, 'index'])->name('index');
+// Route::get('/','langdingpageController@index')->name('index');
+// Route::get('/blank','langdingpageController@blank');
+Route::get('/product', [App\Http\Controllers\langdingpageController::class, 'product'])->name('product');
+Route::get('/news', [App\Http\Controllers\langdingpageController::class, 'news'])->name('news');
+Route::get('/contact', [App\Http\Controllers\langdingpageController::class, 'contact'])->name('contact');
+Route::get('/auther', [App\Http\Controllers\langdingpageController::class, 'auther'])->name('auther');
