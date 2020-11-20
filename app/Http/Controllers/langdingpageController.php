@@ -18,39 +18,66 @@ class langdingpageController extends Controller
     public function index()
     {
       
-      
+      $kesach = Product::where("id",'>=',0)->orderBy('id')->take(6)->get();
+      $sachmoi = Product::where('total_sale','!=',0)->orderBy('pro_sale_id','desc')->take(8)->get();
+      $sachmoi2 = Product::where('total_sale','!=',0)->orderBy('id','desc')->take(2)->get();
+      $sachbanchay = Product::where('pro_att_id','>',10)->orderBy('id','desc')->take(4)->get();
         // $products = Product::where('price_promotion','!=',0)->orderBy('price_promotion','desc')->take(12)->get();
-        // $brand = Brand::where("id",'>',1)->inRandomOrder()->take(9)->get();
-        // $catalog = Catalog::get();
-        // $slide = Slide::get();
+        // // $brand = Brand::where("id",'>',1)->inRandomOrder()->take(9)->get();
+      $catalog = Catalog::get();
+        // // $slide = Slide::get();
         // foreach($products as $product){
         //   $product->image = explode(',', $product->image);
         // }
         // // $img_aray = explode(",", $products->image);
         // // echo $img_aray[0]; 
-        // return view('index', 
-        // [
-        //   'products'=>$products,
-        //   'catalog'=>$catalog,
-        //   'brand'=>$brand,
-        //   'slides'=>$slide
-        //   ]);
-        return view('index');
+        return view('index', 
+        [
+          'kesach'=>$kesach,
+          'sachmoi'=>$sachmoi,
+          'sachmoi2'=>$sachmoi2,
+          'sachbanchay'=>$sachbanchay,
+          'catalog'=>$catalog,
+          // 'brand'=>$brand,
+          // 'slides'=>$slide
+          ]);
+    
+        //  return view('index');
     }
 
-    public function product(Request $req)
+    public function product()
     {
     //   $comment = Comment::select('comment.*','users.name')->where('id_product','=',$req->id)->leftJoin('users','users.id','=','comment.id_user')->get();
-    //   $product = Product::where('id',$req->id)->first();
-    //   $product->image = explode(',', $product->image);
-    //   return view('product',
-    //   [
-    //     'product'=>$product,
-    //     'comments'=>$comment
-    //     ]);
-        return view('product');
+    
+    $author = Product::where("author",'>=',0)->distinct()->take(10) ->get();
+    $product = Product::get();
+    
+      // $product->image = explode(',', $product->image);
+
+      return view('product',
+      [
+        'product'=>$product,
+        'author'=>$author
+        ]);
+
 
     }
+
+    public function productID(Request $req)
+    {
+
+      $author = Product::where("id",'>=',0)->orderBy('id')->take(6)->get();
+      $product = Product::get();
+ 
+      return view('product',
+      [
+        'product'=>$product,
+        'author'=>$author
+        ]);
+
+
+    }
+
     public function addComment(Request $req){
         $comment = new Comment;
 

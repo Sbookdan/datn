@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Catalog extends Model
 {
-    protected $table = "catalog";
+    protected $table = "categories";
     public function product(){
-        return $this->hasMany('App\Product','id_catalog','id');
+        return $this->hasMany('App\Product','att_cate_id','id');
     }
 }

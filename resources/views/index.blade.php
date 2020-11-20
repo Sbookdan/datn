@@ -30,7 +30,7 @@
 
                                         <!-- Văn hóa - Xã hội -->
 
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
                                             <a href="#">Văn hóa - Xã hội</a>
                                             <ul class="drop-menu">
                                                 <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -49,210 +49,31 @@
                                                 </li>
                                             </ul>
                                             <span class="badge badge-primary badge-pill">100</span>
-                                        </li>
-
-                                        <!-- Khoa học - Công nghệ -->
-
+                                        </li> -->
+                                        
+                                        @foreach($catalog as $cat)
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="#">Khoa học - Công nghệ</a>
+                                            <a href="#">{{$cat->name}}</a>
                                             <ul class="drop-menu">
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <h2>Khoa học - Công nghệ</h2>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Kiến thức khoa học</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
+                                                <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <h2>Văn hóa - Xã hội</h2>
+                                                    <span class="badge badge-primary badge-pill">100</span>
 
-                                                </li>
-                                            </ul>
-                                            <span class="badge badge-primary badge-pill">2</span>
-                                        </li>
-
-                                        <!-- Kinh dị -->
-
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="#">Kinh dị</a>
-                                            <ul class="drop-menu">
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <h2>Kinh dị</h2>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Truyện tâm linh</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                            </ul>
-                                            <span class="badge badge-primary badge-pill">2</span>
-                                        </li>
-
-                                        <!-- Văn học -->
-
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="#">Văn học</a>
-                                            <ul class="drop-menu">
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <h2>Văn học</h2>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Thơ - Tiểu thuyết</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Truyện ngắn</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                            </ul>
-                                            <span class="badge badge-primary badge-pill">2</span>
-                                        </li>
-
-                                        <!-- Ngôn tình -->
-
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="#">Ngôn tình</a>
-                                            <ul class="drop-menu">
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <h2>Ngôn tình</h2>
-                                                    <span class="badge badge-primary badge-pill">2</span>
                                                 </li>
                                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                                     <a href="#">Chính trị - Pháp luật</a>
                                                     <span class="badge badge-primary badge-pill">2</span>
+
                                                 </li>
                                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                                     <a href="#">Tôn giáo - Tâm linh</a>
                                                     <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
+                                                </li> -->
                                             </ul>
-                                            <span class="badge badge-primary badge-pill">2</span>
+                                            <span class="badge badge-primary badge-pill">100</span>
                                         </li>
-
-                                        <!-- Kinh doanh -->
-
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="#">Kinh doanh</a>
-                                            <ul class="drop-menu">
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <h2>Kinh doanh</h2>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Chính trị - Pháp luật</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Tôn giáo - Tâm linh</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                            </ul>
-                                            <span class="badge badge-primary badge-pill">2</span>
-                                        </li>
-
-                                        <!-- Thiếu Nhi -->
-
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="#">Thiếu nhi</a>
-                                            <ul class="drop-menu">
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <h2>Thiếu nhi</h2>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Chính trị - Pháp luật</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Tôn giáo - Tâm linh</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                            </ul>
-                                            <span class="badge badge-primary badge-pill">2</span>
-                                        </li>
-
-                                        <!-- Truyện tranh -->
-
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="#">Truyện tranh</a>
-                                            <ul class="drop-menu">
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <h2>Truyện tranh</h2>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Chính trị - Pháp luật</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Tôn giáo - Tâm linh</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                            </ul>
-                                            <span class="badge badge-primary badge-pill">2</span>
-                                        </li>
-
-                                        <!-- Nhà xuất bản -->
-
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="#">Nhà xuất bản</a>
-                                            <ul class="drop-menu">
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <h2>Nhà xuất bản</h2>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Chính trị - Pháp luật</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Tôn giáo - Tâm linh</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                            </ul>
-                                            <span class="badge badge-primary badge-pill">2</span>
-                                        </li>
-
-                                        <!-- Tác giả -->
-
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="#">Tác giả</a>
-                                            <ul class="drop-menu">
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <h2>Tác giả</h2>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Chính trị - Pháp luật</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Tôn giáo - Tâm linh</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                            </ul>
-                                            <span class="badge badge-primary badge-pill">2</span>
-                                        </li>
-
-                                        <!-- Tạp chí -->
-
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="#">Tạp chí</a>
-                                            <ul class="drop-menu">
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <h2>Tạp chí</h2>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Chính trị - Pháp luật</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    <a href="#">Tôn giáo - Tâm linh</a>
-                                                    <span class="badge badge-primary badge-pill">2</span>
-                                                </li>
-                                            </ul>
-                                            <span class="badge badge-primary badge-pill">2</span>
-                                        </li>
+					                    @endforeach
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -262,78 +83,22 @@
                                 <p>Kệ Sách</p>
                                 <div class="container">
                                     <div class="row">
-                                        <div class="card-1 min-books col-md-4 book-left" style="width: 18rem;">
+                                    @foreach($kesach as $kesach)
+                                    <div class="card-1 min-books col-md-4 book-left" style="width: 18rem;">
                                             <a href="#">
                                                 <div class="figure">
-                                                    <img src="./images/chang-trai-nam-ay.jpg" alt="" srcset="">
+                                                    <img src="./images/{{$kesach->avatar}}" alt="" srcset="">
                                                 </div>
                                                 <div class="card-body">
                                                     <h4>
-                                                        Chàng trai năm ấy
+                                                    {{$kesach->name}}
                                                     </h4>
                                                 </div>
                                             </a>
                                         </div>
-                                        <div class="card-1 min-books col-md-4 book-left" style="width: 18rem;">
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="./images/chang-trai-nam-ay.jpg" alt="" srcset="">
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4>
-                                                        Chàng trai năm ấy
-                                                    </h4>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="card-1 min-books col-md-4 book-left" style="width: 18rem;">
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="./images/chang-trai-nam-ay.jpg" alt="" srcset="">
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4>
-                                                        Chàng trai năm ấy
-                                                    </h4>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="card-1 min-books col-md-4 book-left" style="width: 18rem;">
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="./images/chang-trai-nam-ay.jpg" alt="" srcset="">
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4>
-                                                        Chàng trai năm ấy
-                                                    </h4>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="card-1 min-books col-md-4 book-left" style="width: 18rem;">
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="./images/chang-trai-nam-ay.jpg" alt="" srcset="">
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4>
-                                                        Chàng trai năm ấy
-                                                    </h4>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="card-1 min-books col-md-4 book-left" style="width: 18rem;">
-                                            <a href="#">
-                                                <div class="figure">
-                                                    <img src="./images/chang-trai-nam-ay.jpg" alt="" srcset="">
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4>
-                                                        Chàng trai năm ấy
-                                                    </h4>
-                                                </div>
-                                            </a>
-                                        </div>
+							        @endforeach
+                                        
+                                       
                                     </div>
                                 </div>
                                 <div class="card-1 text-center">
@@ -665,94 +430,20 @@
                     <h2>Sách Mới</h2>
                     <div class="row ">
                         <div class="owl-carousel owl-theme ">
-                            <div class="item ">
+                            
+                            @foreach($sachmoi as $sachmoi)
+							<div class="item ">
                                 <a href="">
                                     <div class="books-new-up item">
-                                        <img src="./images/2286.jpg " alt=" " srcset=" ">
+                                        <img src="./images/{{$sachmoi->avatar}} " alt=" " srcset=" ">
                                     </div>
                                     <div class="books-new-down">
-                                        <h3>Mộ tử thần</h3>
-                                        <p>Hà Đăng</p>
+                                        <h3>{{$sachmoi->name}}</h3>
+                                        <p>{{$sachmoi->author}}</p>
                                     </div>
                                 </a>
                             </div>
-                            <div class="item ">
-                                <a href="">
-                                    <div class="books-new-up ">
-                                        <img src="./images/2278.jpg " alt=" " srcset=" ">
-                                    </div>
-                                    <div class="books-new-down ">
-                                        <h3>Mộ tử thần</h3>
-                                        <p>Hà Đăng</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item ">
-                                <a href="">
-                                    <div class="books-new-up ">
-                                        <img src="./images/2286.jpg " alt=" " srcset=" ">
-                                    </div>
-                                    <div class="books-new-down ">
-                                        <h3>Hoàng hà phục yêu truyện</h3>
-                                        <p>Long Phi Có Yêu Khí</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item ">
-                                <a href="">
-                                    <div class="books-new-up ">
-                                        <img src="./images/24372.jpg " alt=" " srcset=" ">
-                                    </div>
-                                    <div class="books-new-down ">
-                                        <h3>Càng độc lập càng yêu quý</h3>
-                                        <p>Vãn Tình</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item ">
-                                <a href="">
-                                    <div class="books-new-up ">
-                                        <img src="./images/24752.jpg " alt=" " srcset=" ">
-                                    </div>
-                                    <div class="books-new-down ">
-                                        <h3>Hộ chiếu tình yêu</h3>
-                                        <p>Hồ Thu Hương</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item ">
-                                <a href="">
-                                    <div class="books-new-up ">
-                                        <img src="./images/2278.jpg " alt=" " srcset=" ">
-                                    </div>
-                                    <div class="books-new-down ">
-                                        <h3>Mộ tử thần</h3>
-                                        <p>Hà Đăng</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item ">
-                                <a href="">
-                                    <div class="books-new-up ">
-                                        <img src="./images/2278.jpg " alt=" " srcset=" ">
-                                    </div>
-                                    <div class="books-new-down ">
-                                        <h3>Mộ tử thần</h3>
-                                        <p>Hà Đăng</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item ">
-                                <a href="">
-                                    <div class="books-new-up ">
-                                        <img src="./images/2278.jpg " alt=" " srcset=" ">
-                                    </div>
-                                    <div class="books-new-down ">
-                                        <h3>Mộ tử thần</h3>
-                                        <p>Hà Đăng</p>
-                                    </div>
-                                </a>
-                            </div>
+							@endforeach
                         </div>
                     </div>
                 </div>
@@ -763,94 +454,22 @@
                     <h2>Sách bán chạy</h2>
                     <div class="card-1 book-buy-go">
                         <div class="row">
-                            <div class="col-md-3 books-sell">
+                           
+                            
+                            @foreach($sachbanchay as $sbc)
+							<div class="col-md-3 books-sell">
                                 <a href="">
                                     <div class="books-sell-up">
-                                        <img class="img-fluid" src="./images/2278.jpg" alt="" srcset="">
+                                        <img src="./images/{{$sbc->avatar}}" alt="" srcset="">
                                     </div>
                                     <div class="books-sell-down text-center">
-                                        <h3>Mộ tử thần</h3>
-                                        <p>Hà Đăng</p>
+                                        <h3>{{$sbc->name}}</h3>
+                                        <p>{{$sbc->author}}</p>
                                     </div>
                                 </a>
                             </div>
-                            <div class="col-md-3 books-sell">
-                                <a href="">
-                                    <div class="books-sell-up">
-                                        <img src="./images/2278.jpg" alt="" srcset="">
-                                    </div>
-                                    <div class="books-sell-down text-center">
-                                        <h3>Mộ tử thần</h3>
-                                        <p>Hà Đăng</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3 books-sell">
-                                <a href="">
-                                    <div class="books-sell-up">
-                                        <img src="./images/2278.jpg" alt="" srcset="">
-                                    </div>
-                                    <div class="books-sell-down text-center">
-                                        <h3>Mộ tử thần</h3>
-                                        <p>Hà Đăng</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3 books-sell">
-                                <a href="">
-                                    <div class="books-sell-up">
-                                        <img src="./images/2278.jpg" alt="" srcset="">
-                                    </div>
-                                    <div class="books-sell-down text-center">
-                                        <h3>Mộ tử thần</h3>
-                                        <p>Hà Đăng</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3 books-sell">
-                                <a href="">
-                                    <div class="books-sell-up">
-                                        <img src="./images/2278.jpg" alt="" srcset="">
-                                    </div>
-                                    <div class="books-sell-down text-center">
-                                        <h3>Mộ tử thần</h3>
-                                        <p>Hà Đăng</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3 books-sell">
-                                <a href="">
-                                    <div class="books-sell-up">
-                                        <img src="./images/2278.jpg" alt="" srcset="">
-                                    </div>
-                                    <div class="books-sell-down text-center">
-                                        <h3>Mộ tử thần</h3>
-                                        <p>Hà Đăng</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3 books-sell">
-                                <a href="">
-                                    <div class="books-sell-up">
-                                        <img src="./images/2278.jpg" alt="" srcset="">
-                                    </div>
-                                    <div class="books-sell-down text-center">
-                                        <h3>Mộ tử thần</h3>
-                                        <p>Hà Đăng</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-md-3 books-sell">
-                                <a href="">
-                                    <div class="books-sell-up">
-                                        <img src="./images/2278.jpg" alt="" srcset="">
-                                    </div>
-                                    <div class="books-sell-down text-center">
-                                        <h3>Mộ tử thần</h3>
-                                        <p>Hà Đăng</p>
-                                    </div>
-                                </a>
-                            </div>
+							@endforeach
+                    
                         </div>
                     </div>
                 </div>
@@ -871,6 +490,7 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="card-body-book">
+                                               
                                                     <div class="iimgg">
                                                         <img class="img-fluid" src="./images/book-7.jpg " alt=" ">
                                                     </div>
@@ -882,16 +502,19 @@
                                                         <h3 class="text-center ">Sach Moi</h3>
                                                         <p class="p-size text-left">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                                                         <div class="row imgimg-top">
+                                                        @foreach ($sachmoi2 as $sach)
                                                             <div class="col-md-6">
-                                                                <img class="img-fluid" src="./images/dac-nhan-tam.jpg " alt=" ">
+                                                                <img class="img-fluid" src="./images/{{$sach->avatar}} " alt=" ">
                                                             </div>
-                                                            <div class="col-md-6 imig">
+                                                        @endforeach
+                                                            <!-- <div class="col-md-6 imig">
                                                                 <img class="img-fluid" src="./images/dac-nhan-tam.jpg " alt=" ">
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                          
                                         </div>
                                     </div>
                                 </div>
