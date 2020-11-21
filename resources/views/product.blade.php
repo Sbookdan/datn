@@ -40,7 +40,7 @@
 		    					</div>
 		    					<div class="text px-4 py-3 w-100">
 		    						<p class="mb-2"><span class="price">${{$pro->price}}</span></p>
-		    						<h2><a href="">{{$pro->name}}</a></h2>
+		    						<h2><a href="{{route('product',[$pro->id])}}">{{$pro->name}}</a></h2>
 		    						<span class="position">{{$pro->author}}</span>
 		    					</div>
 		    				</div>

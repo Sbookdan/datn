@@ -101,7 +101,7 @@
                                 <img src="./images/{{$pro->avatar}} " alt=" " srcset=" ">
                             </div>
                             <div class="books-new-down text-center">
-                                <h3>{{$pro->name}}</h3>
+                                <h3><a href="{{route('product',[$pro->id])}}">{{$pro->name}}</a></h3>
                                 <p>{{$pro->author}}</p>
                             </div>
                         </div>
