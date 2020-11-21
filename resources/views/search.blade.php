@@ -20,6 +20,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-9 ftco-animate">
+          <h2>Tìm thấy <span style="color:red;">{{count($product)}} </span>cuốn sách</h2>
 						<div class="row">
                         @foreach($product as $pro)
 		    			<div class="col-md-4 d-flex">
