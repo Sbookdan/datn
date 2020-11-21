@@ -46,7 +46,7 @@
                     <li class="nav-item"><a href="{{route('products')}}" class="nav-link">Sản Phẩm</a></li>
                     <li class="nav-item"><a href="{{route('news')}}" class="nav-link">Tin Tức</a></li>
                     <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Liên Hệ</a></li>
-                    <li class="nav-item"><a href="{{route('auther')}}" class="nav-link">Author</a></li>
+                    <li class="nav-item"><a href="{{route('auther')}}" class="nav-link">Tác Giả</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Login in

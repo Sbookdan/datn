@@ -66,16 +66,18 @@ class langdingpageController extends Controller
     public function product(Request $req)
     {
     //   $comment = Comment::select('comment.*','users.name')->where('id_product','=',$req->id)->leftJoin('users','users.id','=','comment.id_user')->get();
-    $catalog = Catalog::get();
+    $catalog = Product::where('id',$req->id)->value('pro_att_id');
     $author = Product::where("author",'>=',0)->distinct()->take(10) ->get();
-    $product = Product::where('id',$req->id)->first();
+    $product2 = Product::where('id',$req->id)->get();
+    $product = Product::where('id',$req->id)->get();
     $pro_att= Product::where('id',$req->id)->value('pro_att_id');
     $pro = Product::where("pro_att_id",$pro_att)->distinct()->get();
       // $product->image = explode(',', $product->image);
 
       return view('product-detail',
       [
-        
+        // 'catalog'=>$catalog,
+        'product2'=>$product2,
         'product'=>$product,
         'author'=>$author,
         'pro'=>$pro
@@ -163,6 +165,7 @@ class langdingpageController extends Controller
     }
     public function contact(){
         return view('contact');
+      
     }
     public function auther(){
         return view('auther');
