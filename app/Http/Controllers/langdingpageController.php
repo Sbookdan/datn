@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
+use lluminate\Pagination\LengthAwarePaginator;
 use App\Product;
 // use App\Cart;
 use App\Catalog;
+use App\SubCatalog;
 use Session;
 use Cart;
 use App\Brand;
@@ -17,14 +20,24 @@ class langdingpageController extends Controller
 {
     public function index()
     {
-      
-      $kesach = Product::where("id",'>=',0)->orderBy('id')->take(6)->get();
+      $kesach = Product::where("id",'>=',0)->orderBy('id')->take(6)->get();;
+      // $kesach =\App\Product::paginate(6);
       $sachmoi = Product::where('total_sale','!=',0)->orderBy('pro_sale_id','desc')->take(8)->get();
       $sachmoi2 = Product::where('total_sale','!=',0)->orderBy('id','desc')->take(2)->get();
+      $sachkm = Product::where('pro_sale_id','>',1)->take(4)->get();
       $sachbanchay = Product::where('pro_att_id','>',10)->orderBy('id','desc')->take(4)->get();
+      $sachhot10 = Product::where('total_sale','!=',0)->orderBy('pro_sale_id','desc')
+                                                    ->whereMonth('created_at', '10')
+                                                    ->take(2)->get();
         // $products = Product::where('price_promotion','!=',0)->orderBy('price_promotion','desc')->take(12)->get();
         // // $brand = Brand::where("id",'>',1)->inRandomOrder()->take(9)->get();
       $catalog = Catalog::get();
+      $cat1 = SubCatalog::get()
+                      ->where('att_cate_id','1')
+                      ->count();
+      $cat9 = SubCatalog::get()
+                      ->where('att_cate_id','9')
+                      ->count();
         // // $slide = Slide::get();
         // foreach($products as $product){
         //   $product->image = explode(',', $product->image);
@@ -36,39 +49,44 @@ class langdingpageController extends Controller
           'kesach'=>$kesach,
           'sachmoi'=>$sachmoi,
           'sachmoi2'=>$sachmoi2,
+          'sachkm'=>$sachkm,
           'sachbanchay'=>$sachbanchay,
+          'sachhot10'=>$sachhot10,
           'catalog'=>$catalog,
           // 'brand'=>$brand,
           // 'slides'=>$slide
           ]);
-    
-        //  return view('index');
+      
+        // return view('test', ['kesach' => $kesach]);
     }
 
-    public function product()
+    public function product(Request $req)
     {
     //   $comment = Comment::select('comment.*','users.name')->where('id_product','=',$req->id)->leftJoin('users','users.id','=','comment.id_user')->get();
     
     $author = Product::where("author",'>=',0)->distinct()->take(10) ->get();
-    $product = Product::get();
-    
+    $product = Product::where('id',$req->id)->first();
+    $pro_att= Product::where('id',$req->id)->value('pro_att_id');
+    $pro = Product::where("pro_att_id",$pro_att)->distinct()->get();
       // $product->image = explode(',', $product->image);
 
-      return view('product',
+      return view('product-detail',
       [
         'product'=>$product,
-        'author'=>$author
-        ]);
+        'author'=>$author,
+        'pro'=>$pro
+        ]
+    );
 
-
+ 
     }
 
-    public function productID(Request $req)
+    public function products()
     {
 
-      $author = Product::where("id",'>=',0)->orderBy('id')->take(6)->get();
+      $author = Product::where("author",'>=',0)->orderBy('id')->take(6)->get();
       $product = Product::get();
- 
+
       return view('product',
       [
         'product'=>$product,

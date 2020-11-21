@@ -83,22 +83,23 @@
                                 <p>Kệ Sách</p>
                                 <div class="container">
                                     <div class="row">
-                                    @foreach($kesach as $kesach)
+                                    @foreach($kesach as $ks)
                                     <div class="card-1 min-books col-md-4 book-left" style="width: 18rem;">
-                                            <a href="#">
+                                            <a href="{{route('product',[$ks->id])}}">
                                                 <div class="figure">
-                                                    <img src="./images/{{$kesach->avatar}}" alt="" srcset="">
+                                                    <img src="./images/{{$ks->avatar}}" alt="" srcset="">
                                                 </div>
                                                 <div class="card-body">
                                                     <h4>
-                                                    {{$kesach->name}}
+                                                    {{$ks->name}}
                                                     </h4>
                                                 </div>
                                             </a>
                                         </div>
-							        @endforeach
                                         
-                                       
+							        @endforeach
+                                   
+                                    
                                     </div>
                                 </div>
                                 <div class="card-1 text-center">
@@ -433,7 +434,7 @@
                             
                             @foreach($sachmoi as $sachmoi)
 							<div class="item ">
-                                <a href="">
+                                <a href="{{route('product',[$sachmoi->id])}}">
                                     <div class="books-new-up item">
                                         <img src="./images/{{$sachmoi->avatar}} " alt=" " srcset=" ">
                                     </div>
@@ -458,7 +459,7 @@
                             
                             @foreach($sachbanchay as $sbc)
 							<div class="col-md-3 books-sell">
-                                <a href="">
+                                <a href="{{route('product',[$sbc->id])}}">
                                     <div class="books-sell-up">
                                         <img src="./images/{{$sbc->avatar}}" alt="" srcset="">
                                     </div>
@@ -499,7 +500,7 @@
                                             <div class="col-sm-6 col-2-6">
                                                 <div class="card-body-book">
                                                     <div class="container ">
-                                                        <h3 class="text-center ">Sach Moi</h3>
+                                                        <h3 class="text-center ">Sách Mới</h3>
                                                         <p class="p-size text-left">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                                                         <div class="row imgimg-top">
                                                         @foreach ($sachmoi2 as $sach)
@@ -554,23 +555,18 @@
                                             <div class="row row-cols-1 row-cols-md-2">
                                                 <div class="col mb-4">
                                                     <div class="card-1" style="background: #f5f4f0;">
-                                                        <h4 class="text-right ">Sach Hot Thang 10</h4>
+                                                        <h4 class="text-right ">Sách Mới Tháng 10</h4>
                                                     </div>
                                                     <div class="row">
+                                                    @foreach($sachhot10 as $sach10)
                                                         <div class="col-sm-6">
                                                             <div class="card-1" style="background: #f5f4f0;">
                                                                 <div class="iimmgg">
-                                                                    <img class="img-fluid" src="./images/dac-nhan-tam.jpg " alt=" ">
+                                                                    <img class="img-fluid" src="./images/{{$sach10->avatar}}" alt=" ">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6">
-                                                            <div class="card-1" style="background: #f5f4f0;">
-                                                                <div class="iimmgg">
-                                                                    <img class="img-fluid" src="./images/dac-nhan-tam.jpg " alt=" ">
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                    @endforeach
                                                     </div>
                                                 </div>
                                             </div>
@@ -580,26 +576,17 @@
                             </div>
                             <div class="card-1 w-57" style="background: #f5f4f0;">
                                 <div class="container ">
-                                    <p class="txt1">bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</p>
+                                    <!-- <p class="txt1">Sách Mới</p> -->
+                                    <h4 class="txt1 ">Sách Khuyến Mãi</h4>
                                     <div class="row ">
                                         <div class="container ">
                                             <div class="iimgg-57">
                                                 <div class="card-deck">
+                                                @foreach($sachkm as $sach)
                                                     <div class="card">
-                                                        <img src="./images/dac-nhan-tam.jpg " class="card-img-top " alt="... ">
+                                                       <a href="{{route('product',[$sach->id])}}"><img src="./images/{{$sach->avatar}} " class="card-img-top " alt="... "></a> 
                                                     </div>
-                                                    <div class="card">
-                                                        <img src="./images/dac-nhan-tam.jpg " class="card-img-top " alt="... ">
-                                                    </div>
-                                                    <div class="card">
-                                                        <img src="./images/dac-nhan-tam.jpg " class="card-img-top " alt="... ">
-                                                    </div>
-                                                    <div class="card">
-                                                        <img src="./images/dac-nhan-tam.jpg " class="card-img-top " alt="... ">
-                                                    </div>
-                                                    <div class="card">
-                                                        <img src="./images/dac-nhan-tam.jpg " class="card-img-top " alt="... ">
-                                                    </div>
+                                                @endforeach
                                                 </div>
                                             </div>
                                         </div>

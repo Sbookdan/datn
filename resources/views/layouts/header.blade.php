@@ -43,7 +43,7 @@
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item active"><a href="{{route('index'),}}" class="nav-link">Trang Chủ</a></li>
-                    <li class="nav-item"><a href="{{route('product')}}" class="nav-link">Sản Phẩm</a></li>
+                    <li class="nav-item"><a href="{{route('products')}}" class="nav-link">Sản Phẩm</a></li>
                     <li class="nav-item"><a href="{{route('news')}}" class="nav-link">Tin Tức</a></li>
                     <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Liên Hệ</a></li>
                     <li class="nav-item"><a href="{{route('auther')}}" class="nav-link">Author</a></li>

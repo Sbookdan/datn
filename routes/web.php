@@ -27,10 +27,11 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //
 Route::get('/', [langdingpageController::class, 'index'])->name('index');
+
 // Route::get('/','langdingpageController@index')->name('index');
 // Route::get('/blank','langdingpageController@blank');
-Route::get('/product', [langdingpageController::class, 'product'])->name('product');
-Route::get('/product/{slug}/{id}', [langdingpageController::class, 'productID'])->name('productID');
+Route::get('/products', [langdingpageController::class, 'products'])->name('products');
+Route::get('/{id}', [langdingpageController::class, 'product'])->name('product');
 
 
 Route::get('/news', [langdingpageController::class, 'news'])->name('news');
