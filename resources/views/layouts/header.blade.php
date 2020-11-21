@@ -8,10 +8,10 @@
                                 Company</small></a>
                     </div>
                     <div class="col-md-6 d-md-flex justify-content-end mb-md-0 mb-3">
-                        <form action="#" class="searchform order-lg-last">
+                        <form method="get" action="{{route('search')}}" class="searchform order-lg-last">
                             <div class="form-group d-flex">
-                                <input type="text" class="form-control pl-3" placeholder="Search">
-                                <button type="submit" placeholder="" class="form-control search"><span
+                                <input type="text"  name="key" class="form-control pl-3" placeholder="Search">
+                                <button id="searchSubmit" type="submit" placeholder="" class="form-control search"><span
                                         class="fa fa-search"></span></button>
                             </div>
                         </form>

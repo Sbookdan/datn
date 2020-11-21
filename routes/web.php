@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\langdingpageController;
+use App\Http\Controllers\SearchController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,3 +38,7 @@ Route::get('/products-{id}', [langdingpageController::class, 'product'])->name('
 Route::get('/news', [langdingpageController::class, 'news'])->name('news');
 Route::get('/contact', [langdingpageController::class, 'contact'])->name('contact');
 Route::get('/auther', [langdingpageController::class, 'auther'])->name('auther');
+
+
+Route::get('/search', [SearchController::class, 'search'])->name('search');
+// Route::post('/search', [SearchController::class, 'search'])->name('search');
