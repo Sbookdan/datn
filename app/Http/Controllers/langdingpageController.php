@@ -20,24 +20,26 @@ class langdingpageController extends Controller
 {
     public function index()
     {
-      $kesach = Product::where("id",'>=',0)->orderBy('id')->take(6)->get();;
-      // $kesach =\App\Product::paginate(6);
-      $sachmoi = Product::where('total_sale','!=',0)->orderBy('pro_sale_id','desc')->take(8)->get();
-      $sachmoi2 = Product::where('total_sale','!=',0)->orderBy('id','desc')->take(2)->get();
-      $sachkm = Product::where('pro_sale_id','>',1)->take(4)->get();
+      // $kesach = Product::where("id",'>=',0)->orderBy('id')->take(6)->get();;
+      $kesach =Product::paginate(6);
+      $sachmoi = Product::where('sale','!=',0)->orderBy('id','desc')->take(8)->get();
+      $sachmoi2 = Product::where('sale','!=',0)->orderBy('id','desc')->take(2)->get();
+      $sachkm = Product::where('sale','!=',null)->take(4)->get();
       $sachbanchay = Product::where('pro_att_id','>',10)->orderBy('id','desc')->take(4)->get();
-      $sachhot10 = Product::where('total_sale','!=',0)->orderBy('pro_sale_id','desc')
+      $sachhot10 = Product::where('sale','!=',0)->orderBy('id','desc')
                                                     ->whereMonth('created_at', '10')
                                                     ->take(2)->get();
         // $products = Product::where('price_promotion','!=',0)->orderBy('price_promotion','desc')->take(12)->get();
         // // $brand = Brand::where("id",'>',1)->inRandomOrder()->take(9)->get();
       $catalog = Catalog::get();
-      $cat1 = SubCatalog::get()
-                      ->where('att_cate_id','1')
-                      ->count();
-      $cat9 = SubCatalog::get()
-                      ->where('att_cate_id','9')
-                      ->count();
+      $cat2 = SubCatalog::select('att_cate_id', DB::raw('count(*) as total'))
+                      
+                      ->groupBy('att_cate_id')
+                      ->get();
+                      
+      // $cat9 = SubCatalog::get()
+      //                 ->where('att_cate_id','9')
+      //                 ->count();
         // // $slide = Slide::get();
         // foreach($products as $product){
         //   $product->image = explode(',', $product->image);
@@ -46,6 +48,7 @@ class langdingpageController extends Controller
         // // echo $img_aray[0]; 
         return view('index', 
         [
+          'cat2'=>$cat2,
           'kesach'=>$kesach,
           'sachmoi'=>$sachmoi,
           'sachmoi2'=>$sachmoi2,
@@ -56,14 +59,14 @@ class langdingpageController extends Controller
           // 'brand'=>$brand,
           // 'slides'=>$slide
           ]);
-      
+        
         // return view('test', ['kesach' => $kesach]);
     }
 
     public function product(Request $req)
     {
     //   $comment = Comment::select('comment.*','users.name')->where('id_product','=',$req->id)->leftJoin('users','users.id','=','comment.id_user')->get();
-    
+    $catalog = Catalog::get();
     $author = Product::where("author",'>=',0)->distinct()->take(10) ->get();
     $product = Product::where('id',$req->id)->first();
     $pro_att= Product::where('id',$req->id)->value('pro_att_id');
@@ -72,6 +75,7 @@ class langdingpageController extends Controller
 
       return view('product-detail',
       [
+        
         'product'=>$product,
         'author'=>$author,
         'pro'=>$pro
@@ -83,12 +87,13 @@ class langdingpageController extends Controller
 
     public function products()
     {
-
+      $catalog = Catalog::get();
       $author = Product::where("author",'>=',0)->orderBy('id')->take(6)->get();
-      $product = Product::get();
+      $product = Product::paginate(6);
 
       return view('product',
       [
+        'catalog'=>$catalog,
         'product'=>$product,
         'author'=>$author
         ]);

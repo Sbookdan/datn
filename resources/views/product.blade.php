@@ -40,7 +40,7 @@
 		    					</div>
 		    					<div class="text px-4 py-3 w-100">
 		    						<p class="mb-2"><span class="price">${{$pro->price}}</span></p>
-		    						<h2><a href="#">{{$pro->name}}</a></h2>
+		    						<h2><a href="">{{$pro->name}}</a></h2>
 		    						<span class="position">{{$pro->author}}</span>
 		    					</div>
 		    				</div>
@@ -50,7 +50,7 @@
 		    		<div class="row mt-5">
 		          <div class="col">
 		            <div class="block-27">
-		              <ul>
+		              <!-- <ul>
 		                <li><a href="#">&lt;</a></li>
 		                <li class="active"><span>1</span></li>
 		                <li><a href="#">2</a></li>
@@ -58,7 +58,8 @@
 		                <li><a href="#">4</a></li>
 		                <li><a href="#">5</a></li>
 		                <li><a href="#">&gt;</a></li>
-		              </ul>
+		              </ul> -->
+					<ul><li> {!! $product->links("pagination::bootstrap-4") !!}</li></ul>
 		            </div>
 		          </div>
 		        </div>
@@ -75,22 +76,17 @@
             </div>
             <div class="sidebar-box ftco-animate">
               <div class="categories">
-                <h3>Genres</h3>
+                <h3>Thể Loại</h3>
                 <ul>
-	                <li><a href="#">Fantasy <span class="fa fa-chevron-right"></span></a></li>
-	                <li><a href="#">Adventure <span class="fa fa-chevron-right"></span></a></li>
-	                <li><a href="#">Romance <span class="fa fa-chevron-right"></span></a></li>
-	                <li><a href="#">Contemporary <span class="fa fa-chevron-right"></span></a></li>
-	                <li><a href="#">Dystopian <span class="fa fa-chevron-right"></span></a></li>
-	                <li><a href="#">Mystery <span class="fa fa-chevron-right"></span></a></li>
-	                <li><a href="#">Horror <span class="fa fa-chevron-right"></span></a></li>
-	                <li><a href="#">Thriller <span class="fa fa-chevron-right"></span></a></li>
+				@foreach($catalog as $cat)
+	                <li><a href="#">{{$cat->name}}<span class="fa fa-chevron-right"></span></a></li>
+	            @endforeach  
 	              </ul>
               </div>
             </div>
 
             <div class="sidebar-box ftco-animate">
-              <h3>Top Authors</h3>
+              <h3>Top Tác Giả</h3>
               <ul class="top">
               @foreach($author as $author)
               	<li><a href="#">{{$author->author}}</a></li>
