@@ -2,7 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Cart;
+
+use App\Http\Requests\Createrequest;
+
+
+use Cache;
+
+
+use Carbon\Carbon;
+
+
+use Laravel\Socialite\Facades\Socialite;
+
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class HomeController extends Controller
 {
@@ -23,6 +44,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('index');
+    }
+    public function getLogout()
+    {
+        Auth::logout();
+        return redirect('/login');
     }
 }

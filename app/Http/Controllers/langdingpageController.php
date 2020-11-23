@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
@@ -18,156 +19,165 @@ use Auth;
 
 class langdingpageController extends Controller
 {
-    public function index()
-    {
-      // $kesach = Product::where("id",'>=',0)->orderBy('id')->take(6)->get();;
-      $kesach =Product::paginate(6);
-      $sachmoi = Product::where('sale','!=',0)->orderBy('id','desc')->take(8)->get();
-      $sachmoi2 = Product::where('sale','!=',0)->orderBy('id','desc')->take(2)->get();
-      $sachkm = Product::where('sale','!=',null)->take(4)->get();
-      $sachbanchay = Product::where('pro_att_id','>',10)->orderBy('id','desc')->take(4)->get();
-      $sachhot10 = Product::where('sale','!=',0)->orderBy('id','desc')
-                                                    ->whereMonth('created_at', '10')
-                                                    ->take(2)->get();
-        // $products = Product::where('price_promotion','!=',0)->orderBy('price_promotion','desc')->take(12)->get();
-        // // $brand = Brand::where("id",'>',1)->inRandomOrder()->take(9)->get();
-      $catalog = Catalog::get();
-      $cat2 = SubCatalog::select('att_cate_id', DB::raw('count(*) as total'))
-                      
-                      ->groupBy('att_cate_id')
-                      ->get();
-                      
-      // $cat9 = SubCatalog::get()
-      //                 ->where('att_cate_id','9')
-      //                 ->count();
-        // // $slide = Slide::get();
-        // foreach($products as $product){
-        //   $product->image = explode(',', $product->image);
-        // }
-        // // $img_aray = explode(",", $products->image);
-        // // echo $img_aray[0]; 
-        return view('index', 
-        [
-          'cat2'=>$cat2,
-          'kesach'=>$kesach,
-          'sachmoi'=>$sachmoi,
-          'sachmoi2'=>$sachmoi2,
-          'sachkm'=>$sachkm,
-          'sachbanchay'=>$sachbanchay,
-          'sachhot10'=>$sachhot10,
-          'catalog'=>$catalog,
-          // 'brand'=>$brand,
-          // 'slides'=>$slide
-          ]);
-        
-        // return view('test', ['kesach' => $kesach]);
-    }
+  public function index()
+  {
+    // $kesach = Product::where("id",'>=',0)->orderBy('id')->take(6)->get();;
+    $kesach = Product::paginate(6);
+    $sachmoi = Product::where('sale', '!=', 0)->orderBy('id', 'desc')->take(8)->get();
+    $sachmoi2 = Product::where('sale', '!=', 0)->orderBy('id', 'desc')->take(2)->get();
+    $sachkm = Product::where('sale', '!=', null)->take(4)->get();
+    $sachbanchay = Product::where('sale', '>=', 20)->orderBy('id', 'desc')->take(4)->get();
+    $sachhot10 = Product::where('sale', '!=', 0)->orderBy('id', 'desc')
+      ->whereMonth('created_at', '10')
+      ->take(2)->get();
+    $cateatt = DB::table('users')
+                  ->whereExists(function ($query) {
+                    $query->select(DB::raw(1))
+                      ->from('attached')
+                      ->whereRaw('attached.att_cate_id = categories.id');
+                  })
+                  ->get();
+    // $products = Product::where('price_promotion','!=',0)->orderBy('price_promotion','desc')->take(12)->get();
+    // // $brand = Brand::where("id",'>',1)->inRandomOrder()->take(9)->get();
+    $catalog = Catalog::get();
+    $cat2 = SubCatalog::select('att_cate_id', DB::raw('count(*) as total'))
 
-    public function product(Request $req)
-    {
-    //   $comment = Comment::select('comment.*','users.name')->where('id_product','=',$req->id)->leftJoin('users','users.id','=','comment.id_user')->get();
-    $catalog = Product::where('id',$req->id)->value('pro_att_id');
-    $author = Product::where("author",'>=',0)->distinct()->take(10) ->get();
-    $product2 = Product::where('id',$req->id)->get();
-    $product = Product::where('id',$req->id)->get();
-    $pro_att= Product::where('id',$req->id)->value('pro_att_id');
-    $pro = Product::where("pro_att_id",$pro_att)->distinct()->get();
-      // $product->image = explode(',', $product->image);
+      ->groupBy('att_cate_id')
+      ->get();
 
-      return view('product-detail',
+    // $cat9 = SubCatalog::get()
+    //                 ->where('att_cate_id','9')
+    //                 ->count();
+    // // $slide = Slide::get();
+    // foreach($products as $product){
+    //   $product->image = explode(',', $product->image);
+    // }
+    // // $img_aray = explode(",", $products->image);
+    // // echo $img_aray[0]; 
+    return view(
+      'index',
       [
-        // 'catalog'=>$catalog,
-        'product2'=>$product2,
-        'product'=>$product,
-        'author'=>$author,
-        'pro'=>$pro
-        ]
+        'cat2' => $cat2,
+        'kesach' => $kesach,
+        'sachmoi' => $sachmoi,
+        'sachmoi2' => $sachmoi2,
+        'sachkm' => $sachkm,
+        'sachbanchay' => $sachbanchay,
+        'sachhot10' => $sachhot10,
+        'catalog' => $catalog,
+        'cateatt'=>$cateatt,
+        // 'slides'=>$slide
+      ]
     );
 
- 
-    }
+    // return view('test', ['kesach' => $kesach]);
+  }
 
-    public function products()
-    {
-      $catalog = Catalog::get();
-      $author = Product::where("author",'>=',0)->orderBy('id')->take(6)->get();
-      $product = Product::paginate(6);
+  public function product(Request $req)
+  {
+    //   $comment = Comment::select('comment.*','users.name')->where('id_product','=',$req->id)->leftJoin('users','users.id','=','comment.id_user')->get();
+    $catalog = Product::where('id', $req->id)->value('pro_att_id');
+    $author = Product::where("author", '>=', 0)->distinct()->take(10)->get();
+    $product2 = Product::where('id', $req->id)->get();
+    $product = Product::where('id', $req->id)->get();
+    $pro_att = Product::where('id', $req->id)->value('pro_att_id');
+    $pro = Product::where("pro_att_id", $pro_att)->distinct()->get();
+    // $product->image = explode(',', $product->image);
 
-      return view('product',
+    return view(
+      'product-detail',
       [
-        'catalog'=>$catalog,
-        'product'=>$product,
-        'author'=>$author
-        ]);
+        // 'catalog'=>$catalog,
+        'product2' => $product2,
+        'product' => $product,
+        'author' => $author,
+        'pro' => $pro
+      ]
+    );
+  }
 
+  public function products()
+  {
+    $catalog = Catalog::get();
+    $author = Product::where("author", '>=', 0)->orderBy('id')->take(6)->get();
+    $product = Product::paginate(6);
 
-    }
+    return view(
+      'product',
+      [
+        'catalog' => $catalog,
+        'product' => $product,
+        'author' => $author
+      ]
+    );
+  }
 
-    public function addComment(Request $req){
-        $comment = new Comment;
+  public function addComment(Request $req)
+  {
+    $comment = new Comment;
 
-        $idUser = $req->input('idUser');
-        $idProduct = $req->input('idProduct');
-        $content = $req->input('comment');
+    $idUser = $req->input('idUser');
+    $idProduct = $req->input('idProduct');
+    $content = $req->input('comment');
 
-        $comment->id_user = $idUser;
-        $comment->id_product = $idProduct;
-        $comment->content = $content;
-        $comment->save();
-        $div = `<li>
+    $comment->id_user = $idUser;
+    $comment->id_product = $idProduct;
+    $comment->content = $content;
+    $comment->save();
+    $div = `<li>
                   <div class="review-heading">
-                    <h5 class="name">`.Auth::user()->name.`</h5>
-                    <p class="date">`.date('d/m/Y').`</p>
+                    <h5 class="name">` . Auth::user()->name . `</h5>
+                    <p class="date">` . date('d/m/Y') . `</p>
                   </div>
                   <div class="review-body">
-                    <p>`.$content.`</p>
+                    <p>` . $content . `</p>
                   </div>
                 </li>`;
-        return response()->json([
-          'name'=> Auth::user()->name,
-          'date'=> date('d/m/Y'),
-          'content'=> $content
-        ]);
-    }
-    public function store(Request $req)
-    {
-      if(isset($_GET['minPrice'])){
-        $min = $req->minPrice;
-        $max = $req->maxPrice;
-        $product = product::where('price_unit','>=',$min)->where('price_unit','<=',$max)->get();
-        // dd($product);
-        return view('store',compact('product'));
-      }else{
-        $product = product::paginate(9);
-        return view('store',compact('product'));
-      }
-      
-    }
-
-    public function viewcart()
-    {
-      $items = Cart::content();
-      $cart = Cart::count() ;
-      if($cart == 0) {
-        return view('test1');
-      }else{
-        return view('viewcart',['items'=>$items]);
-      }
-    
-      
-    }
-    public function deleteItem($rowId){
-      Cart::remove($rowId);
-      return redirect()->back();
+    return response()->json([
+      'name' => Auth::user()->name,
+      'date' => date('d/m/Y'),
+      'content' => $content
+    ]);
   }
-    public function news(){
-        return view('news');
+  public function store(Request $req)
+  {
+    if (isset($_GET['minPrice'])) {
+      $min = $req->minPrice;
+      $max = $req->maxPrice;
+      $product = product::where('price_unit', '>=', $min)->where('price_unit', '<=', $max)->get();
+      // dd($product);
+      return view('store', compact('product'));
+    } else {
+      $product = product::paginate(9);
+      return view('store', compact('product'));
     }
-    public function contact(){
-        return view('contact');
-      
+  }
+
+  public function viewcart()
+  {
+    $items = Cart::content();
+    $cart = Cart::count();
+    if ($cart == 0) {
+      return view('test1');
+    } else {
+      return view('viewcart', ['items' => $items]);
     }
-    public function auther(){
-        return view('auther');
-    }
+  }
+  public function deleteItem($rowId)
+  {
+    Cart::remove($rowId);
+    return redirect()->back();
+  }
+  public function news()
+  {
+    return view('news');
+  }
+  public function contact()
+  {
+    return view('contact');
+  }
+  public function auther()
+  {
+    return view('auther');
+  }
 }

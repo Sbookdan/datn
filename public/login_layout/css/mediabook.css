@@ -1,0 +1,280 @@
+@media screen and (max-width:1200px) {
+    .xemthem {
+        margin-left: 430px;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    .owl-carousel .owl-nav {
+        top: 50%;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .xemthem {
+        margin-left: 400px;
+    }
+}
+
+
+/* IPad Pro - 1024*1366 */
+
+@media screen and (max-width:1024px) {
+    #menu-cata-left .drop-menu {
+        left: 270px;
+    }
+    .iimgg {
+        margin-top: 104px;
+    }
+    .iimgg-new {
+        margin-top: 132px;
+    }
+    .iimgg-10 {
+        margin-top: 5px;
+    }
+    .imgimg-top {
+        margin-top: 0;
+    }
+    .iimmgg {
+        width: 70px;
+        height: 90px;
+    }
+    .pad-4 {
+        padding-right: 0px;
+        padding-left: 10px;
+        margin-top: 26px;
+    }
+    .mb-4,
+    .my-4 {
+        margin-bottom: 0.5rem;
+    }
+    .iimgg-57 {
+        margin-top: 40px;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    .book-buy-product {
+        width: 210px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .books-sell {
+        margin-right: 50px;
+    }
+    .books-sell-up {
+        width: 250px;
+        margin-left: 30px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .xemthem {
+        margin-left: 350px;
+    }
+}
+
+@media screen and (min-width:800px) {
+    .owl-carousel .owl-nav {
+        top: 43%;
+    }
+    .book-buy-product {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width: 778px) {
+    .figure {
+        width: 200px;
+        float: none;
+    }
+}
+
+
+/* IPad - 168*1024 */
+
+@media screen and (max-width:768px) {
+    .immg-avatar-user {
+        width: 250px;
+        height: 250px;
+        margin-top: -10px;
+    }
+    .immg-avatar {
+        width: 450px;
+        height: auto;
+        margin-left: -101px;
+        margin-top: -89px;
+    }
+    .books-sell-up {
+        width: 250px;
+        margin-left: 0px;
+    }
+    .books-sell {
+        margin-right: 140px;
+        margin-left: auto;
+    }
+    .catalog-top-10 {
+        width: 100%;
+    }
+    .chu-top-1 {
+        margin-bottom: 20px;
+        margin-left: 26px;
+    }
+    .name-top-1 {
+        margin-left: 17px;
+    }
+    .w-75 {
+        margin-left: 20px;
+    }
+    #menu-cata-left .drop-menu {
+        left: 208px;
+    }
+    #menu-cata-left li {
+        width: auto;
+        height: auto;
+    }
+    .books-sell-down {
+        width: 129%;
+    }
+    footer {
+        text-align: center;
+    }
+    .iimgg {
+        margin-top: 186px;
+    }
+    .iimgg-new {
+        margin-top: 205px;
+    }
+    .imgimg-top {
+        margin-top: 0;
+    }
+    .iimmgg {
+        width: 60px;
+        height: 80px;
+    }
+    .pad-4 {
+        padding-right: 0px;
+        padding-left: 10px;
+        margin-top: 26px;
+    }
+    .mb-4,
+    .my-4 {
+        margin-bottom: 0.5rem;
+    }
+    .iimgg-57 {
+        margin-top: 34px;
+    }
+}
+
+@media screen and (min-width:750px) {
+    .img-cate {
+        max-width: 100%;
+    }
+    .book-buy-product {
+        width: 150px;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .book-product {
+        width: 180px;
+    }
+    .img-cate {
+        max-width: 100%;
+    }
+    .w-70 {
+        width: 100% !important;
+    }
+    .owl-carousel .owl-nav {
+        top: 43%;
+    }
+    .book-buy-product {
+        width: 200px;
+    }
+    footer {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .xemthem {
+        margin-left: 430px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #menu-cata-left .drop-menu {
+        left: -10px;
+    }
+    .figure {
+        width: 200px;
+        float: none;
+    }
+    .book-left,
+    .book-buy-go {
+        margin-left: 115px;
+    }
+    .books-sell {
+        margin-left: 31px;
+    }
+    .col-top-375 {
+        margin-top: 10px;
+    }
+    .iimgg,
+    .iimgg-10,
+    .iimgg-new {
+        margin-top: 15px;
+    }
+    .iimmgg {
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+    .margin-right-5 {
+        margin-right: 5px;
+    }
+    .imgimg-top {
+        margin-top: 0;
+    }
+    .iimmgg {
+        width: 60px;
+        height: 80px;
+    }
+    .pad-4 {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-top: 0px;
+    }
+    .mb-4,
+    .my-4 {
+        margin-bottom: 0.5rem;
+    }
+    .iimgg-57 {
+        margin-top: 34px;
+    }
+    .books-sell-down {
+        width: 87%;
+    }
+    .iimgg-new {
+        padding-left: 0px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .xemthem {
+        margin-left: 90px;
+    }
+    .books-sell-down {
+        width: 87%;
+    }
+    .imig {
+        margin-top: 10px;
+    }
+    .book-left,
+    .book-buy-go {
+        margin-left: 60px;
+    }
+    .top-user-1 {
+        margin-left: 50px;
+    }
+}

@@ -22,7 +22,7 @@
                         @foreach($product as $pro)
 		    			<div class="col-md-4 d-flex">
 		    				<div class="book-wrap">
-		    					<div class="img d-flex justify-content-end w-100" style="background-image: url(images/{{$pro->avatar}});">
+		    					<div class="img d-flex justify-content-end w-100" style="background-image: url(img/product/{{$pro->avatar}});">
 		    						<div class="in-text">
 		    							<a href="#" class="icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="left" title="Add to cart">
 		    								<span class="flaticon-shopping-cart"></span>
@@ -39,7 +39,7 @@
 		    						</div>
 		    					</div>
 		    					<div class="text px-4 py-3 w-100">
-		    						<p class="mb-2"><span class="price">${{$pro->price}}</span></p>
+		    						<p class="mb-2"><span class="price">{{$pro->price}}.000 VND</span></p>
 		    						<h2><a href="{{route('product',[$pro->id])}}">{{$pro->name}}</a></h2>
 		    						<span class="position">{{$pro->author}}</span>
 		    					</div>

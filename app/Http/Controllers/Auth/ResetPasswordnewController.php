@@ -26,6 +26,6 @@ class ResetPasswordnewController extends Controller
       
         User::where('id', '=', $id)->update($form_data);
     
-        return redirect('home')->with('success', 'Data is successfully updated');
+        return redirect('/')->with('success', 'Data is successfully updated');
     }
 }

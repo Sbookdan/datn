@@ -288,3 +288,43 @@
     .location-main li:hover .location-list {
         display: block;
     }
+    .login,
+    .signup {
+        background: url('../images/bg-01.jpg');
+        width: 100%;
+        height: auto;
+    }
+    
+    .form-login {
+        -webkit-box-shadow: -1px 4px 24px 12px rgba(0, 0, 0, 0.84);
+        -moz-box-shadow: -1px 4px 24px 12px rgba(0, 0, 0, 0.84);
+        box-shadow: -1px 4px 24px 12px rgba(0, 0, 0, 0.84);
+        margin: 1rem;
+        border-radius: 10px 10px 10px 10px;
+        -moz-border-radius: 10px 10px 10px 10px;
+        -webkit-border-radius: 10px 10px 10px 10px;
+        border: 0px solid #000000;
+        margin: 50% 1rem;
+    }
+    
+    .form-login h3 {
+        text-align: center;
+        color: #fff;
+        padding-top: 1rem;
+    }
+    
+    .form-group label {
+        color: #fff;
+    }
+    
+    .form-login form {
+        padding: 2rem;
+    }
+    
+    #btnn {
+        width: 100%;
+        height: 52px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
