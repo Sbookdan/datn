@@ -13,7 +13,7 @@ class CreateShippingFreeTable extends Migration
      */
     public function up()
     {
-        Schema::create('shipping_free', function (Blueprint $table) {
+        Schema::create('shipping_fee', function (Blueprint $table) {
             $table->id();
             $table->string("name", 255)->nullable();
             $table->string("price_ship", 255)->nullable();
@@ -28,6 +28,6 @@ class CreateShippingFreeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shipping_free');
+        Schema::dropIfExists('shipping_fee');
     }
 }

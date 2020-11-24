@@ -34,6 +34,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
     @yield('css')
+    @yield('style')
 </head>
 
 <body>

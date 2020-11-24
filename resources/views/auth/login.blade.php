@@ -1,12 +1,44 @@
 @extends('layouts.layout')
 
+@section('style')
+<style>
+.contact100-form-title {
+    font-family: Montserrat-Bold;
+    font-size: 30px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    width: 100%;
+    min-height: 128px;
+    position: relative;
+    z-index: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    overflow: hidden;
+    padding: 30px 15px 30px 15px;
+}
+</style>
+@stop
+
 @section('content')
 <section class="login">
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="form-login">
-                    <h3>Đăng Nhập</h3>
+                    <div class="contact100-form-title">
+                        <span>Đăng Nhập</span>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group">

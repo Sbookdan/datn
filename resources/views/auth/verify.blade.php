@@ -5,20 +5,24 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+                <div class="card-header">{{ __('xác minh địa chỉ email của bạn trước khi tiếp tục') }}</div>
 
                 <div class="card-body">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
+                            {{ __('Một liên kết xác minh mới đã được gửi đến địa chỉ email của bạn.') }}
                         </div>
                     @endif
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
+                    {{ __('Trước khi tiếp tục, vui lòng kiểm tra email của bạn để biết liên kết xác minh.') }}
+                    {{ __('Nếu bạn không nhận được email bấm vào đây để để nhận được email.') }}
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
+                        <div class="form-group" style="margin-top: 20px;">
+                            <button type="submit" class="btn btn-primary btn-block" id="btnn">
+                                {{ __('Gửi xác nhận email') }}
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>

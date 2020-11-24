@@ -7,6 +7,50 @@
 @extends('layouts.layout')
 
 @section('title', 'Sbook')
+
+@section('style')
+<style>
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 5px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+</style>
+@stop
+
 @section('content')
 
 <section class="hero-wrap hero-wrap-2" style="background-image: url('./images/bg_5.jpg');"
@@ -47,9 +91,9 @@
                                     </div>
                                     <div class="card-header">
                                         <h2>{{$product->name}}</h2>
-                                        <p>{{$product->author}}</p>
-                                        <p>{{$product->att_pro_id}}</p>
-                                        <p>{{$product->pro_prub_id}}</p>
+                                        <p>Tác Giả: {{$product->author}}</p>
+                                        <p>Thể Loại: {{$product->pro_att_id}}, {{$product->pro_cate_id}}</p>
+                                        <p>Nhà Xuất Bản: {{$product->pro_pub_id}}</p>
                                         <form action="{{ route('cart.store') }}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" value="{{ $product->id }}" id="id" name="id">
@@ -60,9 +104,9 @@
                                             <input type="hidden" value="{{ $product->sale }}" id="slug" name="sale">
                                             <input type="hidden" value="1" id="quantity" name="quantity">
                                             <div class="row">
-                                                <button class="btn btn-secondary btn-sm" class="tooltip-test"
-                                                    title="add to cart">
-                                                    <i class="fa fa-shopping-cart"></i> Buy
+                                                <button class="button" class="tooltip-test"
+                                                    style="vertical-align:middle" title="Mua Sách">
+                                                    <span><i class="fa fa-shopping-cart"></i> Mua</span>
                                                 </button>
                                             </div>
                                         </form>
