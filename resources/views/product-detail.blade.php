@@ -45,12 +45,27 @@
                                                 src="./img/product/{{$product->avatar}}" class="card-img " alt="sssss">
                                         </div>
                                     </div>
-                                    <div class="card-header ">
+                                    <div class="card-header">
                                         <h2>{{$product->name}}</h2>
                                         <p>{{$product->author}}</p>
                                         <p>{{$product->att_pro_id}}</p>
                                         <p>{{$product->pro_prub_id}}</p>
-                                        <a href="#" class="btn btn-primary">Buy</a>
+                                        <form action="{{ route('cart.store') }}" method="POST">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" value="{{ $product->id }}" id="id" name="id">
+                                            <input type="hidden" value="{{ $product->name }}" id="name" name="name">
+                                            <input type="hidden" value="{{ $product->price }}" id="price" name="price">
+                                            <input type="hidden" value="{{ $product->avatar }}" id="img" name="img">
+                                            <input type="hidden" value="{{ $product->author }}" id="slug" name="author">
+                                            <input type="hidden" value="{{ $product->sale }}" id="slug" name="sale">
+                                            <input type="hidden" value="1" id="quantity" name="quantity">
+                                            <div class="row">
+                                                <button class="btn btn-secondary btn-sm" class="tooltip-test"
+                                                    title="add to cart">
+                                                    <i class="fa fa-shopping-cart"></i> Buy
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                     <div class="wtiter">
                                         <div class="card-body ">
@@ -61,20 +76,20 @@
                                 @endforeach
                             </div>
                         </div>
-                        <!-- <div class="col-md-3 text-center">
-                            <div class="justify-content-between align-items-center">
-                                <select class="selectpicker" multiple>
-                                    <option>Văn hóa-Xã hội</option>
-                                    <option>Khoa học-Công nghệ</option>
-                                    <option>Kinh dị</option>
-                                    <option>Kinh doanh</option>
-                                    <option>Truyện tranh</option>
-                                    <option>Tạp chí</option>
-                                    <option>Ngôn tình</option>
-                                    <option>Văn học</option>
-                                    <option>Thiếu nhi</option>
-                                </select>
-                            </div>
+                        <div class="col-md-3 text-center">
+                            <!-- <div class="justify-content-between align-items-center">
+                                    <select class="selectpicker" multiple>
+                                        <option>Văn hóa-Xã hội</option>
+                                        <option>Khoa học-Công nghệ</option>
+                                        <option>Kinh dị</option>
+                                        <option>Kinh doanh</option>
+                                        <option>Truyện tranh</option>
+                                        <option>Tạp chí</option>
+                                        <option>Ngôn tình</option>
+                                        <option>Văn học</option>
+                                        <option>Thiếu nhi</option>
+                                        </select>
+                                </div> -->
                             <div class="hihi">
                                 <div class="col mb-4">
                                     <div class="card-1 h-100" style="margin-top: 10px;">
@@ -99,7 +114,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>

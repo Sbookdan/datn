@@ -10782,10 +10782,11 @@ h5,
 }
 
 .ftco-navbar-light {
-    background: transparent !important;
+    background: #ffff !important;
     z-index: 3;
     padding: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
+    /* border-bottom: 1px solid red; */
 }
 
 @media (max-width: 991.98px) {

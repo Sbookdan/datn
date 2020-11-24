@@ -2,7 +2,6 @@
 
 @section('title', 'sbook')
 
-
 @section('content')
 <div class="container">
     <div class="main">
@@ -28,32 +27,6 @@
                             <div id="menu-cata-left">
                                 <ul class="list-group">
 
-                                    <!-- Văn hóa - Xã hội -->
-
-                                    <!-- <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <a href="#">Văn hóa - Xã hội</a>
-                                        <ul class="drop-menu">
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <h2>Văn hóa - Xã hội</h2>
-                                                <span class="badge badge-primary badge-pill">100</span>
-
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <a href="#">Chính trị - Pháp luật</a>
-                                                <span class="badge badge-primary badge-pill">2</span>
-
-                                            </li>
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
-                                                <a href="#">Tôn giáo - Tâm linh</a>
-                                                <span class="badge badge-primary badge-pill">2</span>
-                                            </li>
-                                        </ul>
-                                        <span class="badge badge-primary badge-pill">100</span>
-                                    </li> -->
-
                                     @foreach($catalog as $cat)
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <a href="#">{{$cat->name}}</a>
@@ -65,12 +38,12 @@
 
                                             </li>
                                             @foreach($cateatt as $caat)
-                                            <li
-                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                            @if($cat->id == $caat->att_cate_id)
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
                                                 <a href="#">{{$caat->name}}</a>
                                                 <span class="badge badge-primary badge-pill">2</span>
-
                                             </li>
+                                            @endif
                                             @endforeach
                                         </ul>
 
@@ -588,7 +561,7 @@
                                         <div class="row row-cols-1 row-cols-md-2">
                                             <div class="col mb-4">
                                                 <div class="card-1" style="background: #f5f4f0;">
-                                                    <h4 class="text-right ">Sách Mới Tháng 10</h4>
+                                                    <h4 class="text-right ">Sách Mới Tháng 11</h4>
                                                 </div>
                                                 <div class="row">
                                                     @foreach($sachhot10 as $sach10)
@@ -636,36 +609,4 @@
 
     </div>
 </div>
-
-<!-- <script>
-$(document).ready(function() {
-    var url = "{{URL('index')}}";
-    $.ajax({
-        url: "/",
-        type: "GET",
-        data: {
-            _token: '{{ csrf_token() }}'
-        },
-        cache: false,
-        dataType: 'json',
-        success: function(dataResult) {
-            console.log(dataResult);
-            var resultData = dataResult.data;
-            var bodyData = '';
-            var i = 1;
-            $.each(resultData, function(index, row) {
-                // var editUrl = url + '/' + row.id + "/edit";
-                bodyData += "<li class='list-group-item d-flex justify-content-between align-items-center'>"
-
-                bodyData += "<a href='#'>"+  row.name + "</a>";
-                bodyData += "<ul class='drop-menu'>"+ row.
-                bodyData += "</ul>";
-
-            })
-            $("#bodyData").append(bodyData);
-        }
-    });
-});
-</script> -->
-
 @endsection

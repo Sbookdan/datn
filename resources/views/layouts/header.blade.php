@@ -35,20 +35,19 @@
         </div>
     </div>
 </div>
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
     <div class="container-fluid">
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
             aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-bars"></span> Menu
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
-                <li class="nav-item active"><a href="{{route('index'),}}" class="nav-link">Trang Chủ</a></li>
-                <li class="nav-item"><a href="{{route('products')}}" class="nav-link">Sản Phẩm</a></li>
-                <li class="nav-item"><a href="{{route('news')}}" class="nav-link">Tin Tức</a></li>
-                <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Liên Hệ</a></li>
-                <li class="nav-item"><a href="{{route('auther')}}" class="nav-link">Tác Giả</a></li>
+                <li class="nav-item active"><a href="{{route('index'),}}" class="nav-link" aria-selected="true">Trang Chủ</a></li>
+                <li class="nav-item"><a href="{{route('products')}}" class="nav-link" aria-selected="false">Sản Phẩm</a></li>
+                <li class="nav-item"><a href="{{route('news')}}" class="nav-link" aria-selected="false">Tin Tức</a></li>
+                <li class="nav-item"><a href="{{route('contact')}}" class="nav-link" aria-selected="false">Liên Hệ</a></li>
+                <li class="nav-item"><a href="{{route('auther')}}" class="nav-link" aria-selected="false">Tác Giả</a></li>
                 @guest
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -57,11 +56,13 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         @if (Route::has('login'))
-                        <a class="nav-link dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link dropdown-item" href="{{ route('login') }}"
+                            style="font-size: 18px;">{{ __('Login') }}</a>
                         @endif
 
                         @if (Route::has('register'))
-                        <a class="nav-link dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link dropdown-item" href="{{ route('register') }}"
+                            style="font-size: 18px;">{{ __('Register') }}</a>
                         @endif
                     </div>
                 </li>
@@ -72,23 +73,33 @@
                         {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="#" style="font-size: 18px;">Trang Cá Nhân</a>
                         @if(Auth::user()->role == 1)
-                        <a class="dropdown-item" href="/admin">
+                        <a class="dropdown-item" href="/admin" style="font-size: 18px;">
                             Admin
-                        </a>
-                        @else
-                        <a class="dropdown-item" href="{{ route('home') }}">
-                            User
                         </a>
                         @endif
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ route('logout') }}">
+                        <a class="dropdown-item" href="{{ route('logout') }}" style="font-size: 18px;">
                             {{ __('Logout') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="badge badge-pill badge-dark">
+                            <i class="fa fa-shopping-cart"></i> {{ \Cart::getTotalQuantity()}}
+                        </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
+                        style="width: 500px; padding: 0px; border-color: #9DA0A2">
+                        <ul class="list-group" style="margin: 20px;">
+                            @include('partials.cart-drop')
+                        </ul>
                     </div>
                 </li>
                 @endguest

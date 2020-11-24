@@ -28,15 +28,19 @@ class langdingpageController extends Controller
     $sachkm = Product::where('sale', '!=', null)->take(4)->get();
     $sachbanchay = Product::where('sale', '>=', 20)->orderBy('id', 'desc')->take(4)->get();
     $sachhot10 = Product::where('sale', '!=', 0)->orderBy('id', 'desc')
-      ->whereMonth('created_at', '10')
+      ->whereMonth('created_at', '11')
       ->take(2)->get();
-    $cateatt = DB::table('users')
-                  ->whereExists(function ($query) {
-                    $query->select(DB::raw(1))
-                      ->from('attached')
-                      ->whereRaw('attached.att_cate_id = categories.id');
-                  })
-                  ->get();
+      
+    // $cateatt = DB::table('attached')
+    //               ->whereExists(function ($query) {
+    //                 $query->select(DB::raw(1))
+    //                   ->from('categories')
+    //                   ->whereRaw('attached.att_cate_id = categories.id');
+    //               })
+    //               ->get();
+
+    $cateatt = DB::table('categories')->join('attached', 'categories.id', '=', 'attached.att_cate_id')->get();
+
     // $products = Product::where('price_promotion','!=',0)->orderBy('price_promotion','desc')->take(12)->get();
     // // $brand = Brand::where("id",'>',1)->inRandomOrder()->take(9)->get();
     $catalog = Catalog::get();
