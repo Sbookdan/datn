@@ -10782,11 +10782,10 @@ h5,
 }
 
 .ftco-navbar-light {
-    background: #ffff !important;
+    background: #fff !important;
     z-index: 3;
     padding: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
-    /* border-bottom: 1px solid red; */
 }
 
 @media (max-width: 991.98px) {
@@ -13080,20 +13079,26 @@ textarea.form-control {
     position: absolute;
     top: 50%;
     left: 0;
-    transform: translate(0%, -50%);
+    transform: translate(-100%, -50%);
     width: 27px;
     height: 44px;
     background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
 }
 
 #next1 {
     position: absolute;
     top: 50%;
     right: 0;
-    transform: translate(0%, -50%);
+    transform: translate(100%, -50%);
     width: 27px;
     background: none;
     height: 44px;
+    border: none;
+    cursor: pointer;
+    outline: none;
 }
 
 .books-new-up {

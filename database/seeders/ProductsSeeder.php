@@ -472,12 +472,269 @@ class ProductsSeeder extends Seeder
             'description' => 'Tôi biết ơn và tôi giàu có là cuốn sách dành cho bất cứ ai quan tâm đến việc tìm kiếm, bắt sóng và kết nối với nguồn năng lượng huyền vi và vô tận của Vũ trụ. Cuốn sách này còn cho độc giả biết thêm nhiều khía cạnh mới mẻ về sự sung túc và viên mãn cũng như cách thức để phát triển nguồn vốn sáng tạo, vốn xã hội, vốn tinh thần và rất, rất nhiều tài sản tinh thần quý giá khác trong đời bạn.
             Chúng ta ở đây vào thời điểm đặc biệt này trên Trái Đất là để mở mang vũ trụ chứ không phải để chiến thắng một giải thưởng hàn lâm nào cả. Chúng ta không phải dùng tài năng của mình để vượt lên và đánh bại bất kỳ ai, cũng không phải để chịu đựng những đau khổ hay giằng xé niềm tin vinh quang rồi sẽ đến sau cơn bĩ cực.',
             'avatar' => 'huong_nghiep_1.jpg',
-            'pro_att_id' => 'Kỹ năng, Khởi nghiệp, Kỹ năng sống',
-            'pro_cate_id' => 'Hướng nghiệp',
+            'pro_att_id' => 'Hướng nghiệp, Khởi nghiệp, Kỹ năng sống',
+            'pro_cate_id' => 'Kỹ năng',
             'price' => 35.000,
             'author' => 'Pam Grout',
             'pro_pub_id' => 'NXB Tổng hợp thành phố HCM',
             'sale' => '50%'
+        ]);
+        Product::create([
+            'name' => 'Cẩm nang chọn nghề',
+            'description' => 'Bạn là sinh viên mới ra trường?
+            Bạn đã gắn bó với một công việc hàng chục năm nhưng giờ đây, bạn nhận ra đó không phải là công việc bạn thực sự đam mê?
+            Bạn đã quá chán ngán với cảnh đi làm thuê cho người khác?
+            Trong một xã hội đầy biến động với quá nhiều cơ hội việc làm nhưng cũng không thiếu những cá nhân tài năng như ngày nay, bạn phải làm gì để trở nên thực sự khác biệt và tìm được cho mình một công việc như ý?
+            Hãy đi tìm câu trả lời cho những câu hỏi trên bằng cách áp dụng 7 bước được Jeff Goins đưa ra trong Cẩm nang chọn nghề. Cuốn sách đơn giản và dễ hiểu này được thiết kế giống như một cuộc hành trình đi tìm "tiếng gọi sự nghiệp" đích thực của bản thân. Mỗi bước đường giống như một trạm dừng chân, mà tại đó bạn sẽ có được những hướng dẫn cụ thể hơn nhằm giúp bạn sớm thu được những trái ngọt ở cuối hành trình.',
+            'avatar' => 'huong_nghiep_2.jpg',
+            'pro_att_id' => 'Hướng nghiệp',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 35.000,
+            'author' => 'Jeff Goins',
+            'pro_pub_id' => 'NXB Lao Động',
+            'sale' => '30%'
+        ]);
+        Product::create([
+            'name' => '[Tóm tắt sách] Đến Starbucks mua cà phê cốc lớn',
+            'description' => 'Đây là bản tóm tắt của sách Đến Starbucks mua cà phê cốc lớn. Các nội dung trong sách đã được Alpha Books giản lược một cách ngắn gọn và cô đọng nhất song tổng thể vẫn đầy đủ so với bản gốc.
+            Đến Starbucks, bạn sẽ gọi cà phê cỡ lớn hay nhỏ?
+            Khi đi xem phim, bạn sẽ mua bịch bắp rang bơ cỡ to hay cỡ nhỏ?
+            Lúc cần mua trà giải khát, bạn sẽ đến siêu thị cách xa hay đến tiệm tạp hóa cạnh nhà?
+            Những vấn đề này có lẽ bạn sẽ cảm thấy thật vụn vặt và chẳng đáng quan tâm, nhưng tác giả đã thông qua việc phân tích những ví dụ đời thường nhất trong cuộc sống hàng ngày để nói với chúng ta rằng: ngoài việc cố gắng kiếm thật nhiều tiền, thì tiêu tiền một cách thông minh cũng chính là tuyệt chiêu tốt nhất để ứng phó với tình trạng lạm phát đang tràn lan hiện nay.
+            Vậy nên để tiết kiệm, chúng ta hãy bắt đầu từ việc học cách tính toán và quản lý chi phí một cách thấu đáo từ hôm nay. Chỉ như vậy, chúng ta mới có thể trở thành NGƯỜI TIÊU DÙNG SÁNG SUỐT.',
+            'avatar' => 'huong_nghiep_3.jpg',
+            'pro_att_id' => 'Hướng nghiệp',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 35.000,
+            'author' => 'Yoshimoto Yoshio',
+            'pro_pub_id' => 'NXB Thế Giới',
+            'sale' => '30%'
+        ]);
+        Product::create([
+            'name' => '[Tóm tắt sách] Thật đơn giản - Phỏng vấn tuyển dụng',
+            'description' => 'Đây là bản tóm tắt của sách Thật đơn giản - Phỏng vấn tuyển dụng. Các nội dung trong sách đã được Alpha Books giản lược một cách ngắn gọn và cô đọng nhất song tổng thể vẫn đầy đủ so với bản gốc.
+            Nhà tuyển dụng thật sự muốn gì ở bạn?
+            Nhà tuyển dụng dựa vào các tiêu chí nào để đánh giá ứng viên?
+            Vì sao nhà tuyển dụng lại quyết định chọn ứng viên này chứ không phải rất nhiều ứng viên sáng giá khác?
+            Bạn phải làm gì để được tuyển dụng?
+            Bạn sẽ:
+            Học được cách thể hiện mình tốt nhất
+            Hiểu được điều gì gây ấn tượng với nhà tuyển dụng nhất
+            Thể hiện sự nổi trội của mình trong suốt quá trình trước, trong và sau cuộc phỏng vấn
+            Với rất nhiều lời khuyên từ chuyên gia, các ví dụ sinh động, các câu chuyện thực tế, các câu hỏi và mẹo thú vị, Thật đơn giản - Phỏng vấn tuyển dụng sẽ cung cấp mọi kiến thức và bài tập thực hành mà bạn cần để thành công và gây ấn tượng với các nhà tuyển dụng.',
+            'avatar' => 'huong_nghiep_4.jpg',
+            'pro_att_id' => 'Hướng nghiệp',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 35.000,
+            'author' => 'Ros Jay',
+            'pro_pub_id' => 'NXB Lao Động Xã Hội',
+            'sale' => '35%'
+        ]);
+        Product::create([
+            'name' => 'Sống ở thế chủ động',
+            'description' => 'Người ta đánh giá chỉ số IQ hay EQ không quan trọng bằng chỉ số AQ (chỉ số vượt khó). Vượt khó chính là một thái độ sống tích cực. Như vậy, trí thông minh hay cảm xúc không quyết định sự thành bại trong cuộc đời bạn, mà cả thái độ sống. Có thái độ tích cực, vạn sự sẽ thành. Mang thái độ tiêu cực, muôn sự sẽ bại.
+            Sống ở thể chủ động tập hợp những bài viết và tâm huyết của tác giả Nguyễn Tuấn Quỳnh – một người chia sẻ, truyền cảm hứng, một người đi, một người viết và đồng thời cũng là một doanh nhân. 
+            Cuốn sách này phản ánh suy nghĩ, những trăn trở, chia sẻ của tác giả với thế hệ trẻ thông qua những chuyến đi thú vị đến các nước trên thế giới và công việc kinh doanh mà tác giả yêu thích. Với tác giả, hành trình cuộc đời của con người chính là khám phá những năng lực và khả năng của bản thân. Sống ở thể chủ động sẽ giúp bạn nhận ra, khi bạn có những ước mơ cháy bỏng, chúng sẽ thôi thúc bạn hăm hở bắt tay thực hiện, bạn sẽ tạo ra được một cuộc sống thú vị và có giá trị.',
+            'avatar' => 'huong_nghiep_5.jpg',
+            'pro_att_id' => 'Hướng nghiệp',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 35.000,
+            'author' => 'Nguyễn Tuấn Quỳnh',
+            'pro_pub_id' => 'NXB Thế Giới',
+            'sale' => '45%'
+        ]);
+        Product::create([
+            'name' => 'Một góc thế giới, bốn bề đại dương',
+            'description' => 'Một góc thế giới, bốn bề đại dương là cuốn cẩm nang cung cấp những thông tin bổ ích, cần thiết để bạn có sự chuẩn bị tốt nhất cho hành trình du học đến Australia. Vương Thục Nhi – tác giả cuốn sách hiện đã sống và học tập tại Australia hơn 7 năm.
+            Sách cung cấp thông tin chi tiết về nền giáo dục Australia bao gồm các bậc học, chương trình, cách tính điểm, các loại học bổng,… Ngoài ra, còn các thông tin về hình thức sinh hoạt, điều kiện chỗ ăn và phương tiện di chuyển, các hình thức làm việc và thủ tục để định cư tại Australia. Cuốn sách này có thể được xem như cuốn từ điển mini về du học Australia.
+            Ngoài ra, tác giả cũng chia sẻ ít nhiều về kinh nghiệm học tập cũng như cuộc sống tại Australia. Qua đó hy vọng bạn đọc sẽ có những hình dung tổng quát về con đường du học và những vấn đề có thể gặp phải tại Australia, từ đó có sự lựa chọn phù hợp cho tương lai.
+            Tiếng Anh có từ vựng tinh tế là serendity dùng để chỉ cơ duyên, những điều may mắn và tốt đẹp mà bạn tình cờ gặp, và việc bạn vô tình đặt tay lên cuốn sách này có lẽ cũng là một serendity.',
+            'avatar' => 'huong_nghiep_6.jpg',
+            'pro_att_id' => 'Hướng nghiệp, Kỹ năng sống',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 35.000,
+            'author' => 'Vương Thục Nhi',
+            'pro_pub_id' => 'NXB Thế Giới',
+            'sale' => '45%'
+        ]);
+        Product::create([
+            'name' => '[Tóm tắt sách] Cẩm nang chọn nghề',
+            'description' => 'Đây là bản tóm tắt của sách Cẩm nang chọn nghề. Các nội dung trong sách đã được Alpha Books giản lược một cách ngắn gọn và cô đọng nhất song tổng thể vẫn đầy đủ so với bản gốc.
+            Bạn là sinh viên mới ra trường?
+            Bạn đã gắn bó với một công việc hàng chục năm nhưng giờ đây, bạn nhận ra đó không phải là công việc bạn thực sự đam mê?
+            Bạn đã quá chán ngán với cảnh đi làm thuê cho người khác?
+            Trong một xã hội đầy biến động với quá nhiều cơ hội việc làm nhưng cũng không thiếu những cá nhân tài năng như ngày nay, bạn phải làm gì để trở nên thực sự khác biệt và tìm được cho mình một công việc như ý?
+            Hãy đi tìm câu trả lời cho những câu hỏi trên bằng cách áp dụng 7 bước được Jeff Goins đưa ra trong Cẩm nang chọn nghề. Cuốn sách đơn giản và dễ hiểu này được thiết kế giống như một cuộc hành trình đi tìm "tiếng gọi sự nghiệp" đích thực của bản thân. Mỗi bước đường giống như một trạm dừng chân, mà tại đó bạn sẽ có được những hướng dẫn cụ thể hơn nhằm giúp bạn sớm thu được những trái ngọt ở cuối hành trình.',
+            'avatar' => 'huong_nghiep_7.jpg',
+            'pro_att_id' => 'Hướng nghiệp',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 20.000,
+            'author' => 'Jeff Goins',
+            'pro_pub_id' => 'NXB Lao Động',
+            'sale' => '50%'
+        ]);
+        Product::create([
+            'name' => '[Tóm tắt sách] Tuổi 20 - Những năm tháng quyết định cuộc đời bạn',
+            'description' => 'Đây là bản tóm tắt của sách Tuổi 20 - Những năm tháng quyết định cuộc đời bạn. Các nội dung trong sách đã được Alpha Books giản lược một cách ngắn gọn và cô đọng nhất song tổng thể vẫn đầy đủ so với bản gốc.
+            Luôn chạy theo đám đông Không tiếp sức, cổ vũ những người xung quanh
+            Nghĩ rằng không phải học hỏi và trưởng thành nữa
+            Nghĩ rằng giúp đỡ ai đó rồi họ sẽ có ngày trả ơn mình
+            Đầu tư vào những mối quan hệ không có giá trị đúng đắn
+            Cặp kè với những người bạn ăn chơi lêu lổng và giết thời gian
+            Luôn tiêu đến đồng cuối cùng mình có được mà không chịu để dành
+            Hẹn hò một người chẳng ra gì
+            Quên rằng luật nhân quả là có thật trong cuộc sống
+            Tuổi thanh xuân giống như một cơn mưa rào mùa hạ chợt đến và rồi chợt đi lúc nào không hay. Đừng bỏ phí những năm tháng quyết định cuộc đời mình các bạn nhé!
+            Waka xin trân trọng giới thiệu sách [Tóm tắt sách] Tuổi 20 - Những năm tháng quyết định cuộc đời bạn - Meg Jay!',
+            'avatar' => 'huong_nghiep_8.jpg',
+            'pro_att_id' => 'Hướng nghiệp',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 20.000,
+            'author' => 'Meg Jay',
+            'pro_pub_id' => 'NXB Lao Động Xã Hội',
+            'sale' => '50%'
+        ]);
+        Product::create([
+            'name' => 'Sức mạnh của thói quen',
+            'description' => 'Về cơ bản, người lớn và trẻ em không khác nhau là mấy. Bởi hầu hết những hành động hàng ngày của chúng ta đều là sản phẩm của thói quen vô thức. Thế nhưng không phải cá nhân, tổ chức nào cũng có được thành công. Đó  là vì mỗi người có những thói quen riêng. Vậy thói quen nào mới giúp bạn thành công? Trong cuốn sách Sức mạnh của thói quen, Charles Duhigg sẽ giải đáp thắc mắc ấy.
+            Chìa khoá quan trọng nhất để mở cánh cửa thành công chính là sự kết hợp nhuần nhuyễn những thói quen tốt với nhau. Câu hỏi đặt ra là làm thế nào để phân biệt thói quen tốt và thói quen xấu? Thói quen có nằm trong tầm kiểm soát của chúng ta hay không? Với ba phần khá đầy đặn, Sức mạnh của thói quen cho bạn cái nhìn toàn diện không chỉ về thói quen cá nhân, của tổ chức mà còn là của toàn xã hội, cùng với lời khuyên để vận dụng các thói quen đó. Muốn thay đổi thói quen, bạn phải phá vỡ những việc làm tuỳ hứng hàng ngày – câu “thần chú” này chỉ đường cho bạn tới thành công.
+            Sức mạnh của thói quen sẽ làm bạn say mê bởi những ý tưởng thú vị, những nghiên cứu ấn tượng, những phân tích thông minh và những lời khuyên thiết thực. Những độc giả đưa cuốn sách này vào danh sách bestseller của Thời báo New York suốt 40 tuần đã kiểm chứng điều đó. Và dưới đây, Alpha Books cũng xin chích đăng một vài bình luận về cuốn sách:
+            “Một thăm dò thú vụ về những thói quen bệnh hoạn của chúng ta – chúng ta hút thuốc, chúng ta không ngừng kiểm tra điện thoại, liên tục chọn lựa người tình tồi, chúng ta thường xuyên (hoặc không bao giờ) thu dọn phòng ốc. Duhigg đào sâu vào tìm ra nguyên do tại sao chúng ta làm như vậy, và chúng ta có thể thay đổi chúng ra sao, với cả cá nhân và tổ chức” – The Daily
+            “Cuốn sách của Charles Duhigg đầy sức mạnh trong chính sự giản dị của nó: đối đầu với những yếu tố gốc rễ trong hành vi con người, chấp nhận chúng như những căn bệnh thâm căn cố đế, rồi sau đó hướng người đọc tới khát khao đổi thay. Cái nhìn của anh thật sâu sắc, hữu ích và cũng đầy khiêu khích” – Jim Collins, tác giả những cuốn sách kinh doanh Good to Great (Từ tốt đến vĩ đại) và Built to Last (Xây dựng để trường tồn) bán chạy nhất thế giới.',
+            'avatar' => 'huong_nghiep_9.jpg',
+            'pro_att_id' => 'Hướng nghiệp',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 35.000,
+            'author' => 'Charles Duhigg',
+            'pro_pub_id' => 'NXB Lao Động Xã Hội',
+            'sale' => '50%'
+        ]);
+        Product::create([
+            'name' => '[Tóm tắt sách] Chọn nghề theo tính cách',
+            'description' => 'Đây là bản tóm tắt của sách Chọn nghề theo tính cách. Các nội dung trong sách đã được Alpha Books giản lược một cách ngắn gọn và cô đọng nhất song tổng thể vẫn đầy đủ so với bản gốc.
+            Chọn Nghề Theo Tính Cách (Tái Bản 2017) là quyển sách gần gũi, dễ đọc, vừa theo dạng câu chuyện vừa theo dạng một cẩm nang hướng dẫn; sẽ cung cấp cho bạn cách thức chọn nghề hữu hiệu nhằm giúp bạn tìm được nghề nghiệp phù hợp nhất với bản thân mình.
+            Chọn nghề là nhiệm vụ quan trọng đầu tiên mà các bạn trẻ cần làm trước khi rời ghế nhà trường phổ thông để vào học đại học hay cao đẳng. Có khá nhiều cách tiếp cận hay phương pháp để chọn lựa nghề nghiệp cho bản thân nhưng những lý giải đằng sau các phương pháp đó có thể dài dòng và khó hiểu. Khi soạn cuốn sách này, chúng tôi cân nhắc thấy nếu cung cấp quá nhiều kiến thức, bạn sẽ nhàm chán và thấy nhiều điều không phù hợp, do đó, chúng tôi cố gắng soạn ra một cuốn sách gần gũi, dễ đọc, vừa theo dạng câu chuyện vừa theo dạng một cẩm nang hướng dẫn. Mục tiêu là cung cấp cho bạn cách thức chọn nghề hữu hiệu nhằm giúp bạn tìm được nghề nghiệp phù hợp nhất với bản thân mình.
+            Hãy dành chút thời gian đọc phần hướng dẫn sử dụng này trước khi đi sâu hơn vào những phần sau. Để đạt được mục tiêu của cuốn sách, sẽ có những phần bạn cần đọc hiểu và có những phần khác bạn phải bỏ chút công sức ra suy nghĩ và hoàn thành. Bạn không phải đọc toàn bộ cuốn sách này, bạn chỉ cần đọc những phần chính) và hoàn thành những nội dung được yêu cầu, chỉ cần như thế, tin là bạn đã đạt được mục tiêu định hướng nghề nghiệp cho bản thân rồi.',
+            'avatar' => 'huong_nghiep_10.jpg',
+            'pro_att_id' => 'Hướng nghiệp',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 20.000,
+            'author' => 'Alpha Book biên soạn',
+            'pro_pub_id' => 'NXB Công Thương',
+            'sale' => '55%'
+        ]);
+        Product::create([
+            'name' => 'Thay đổi suy nghĩ, thay đổi cuộc đời',
+            'description' => 'Nếu bạn sẵn sàng thúc đẩy bản thân hướng đến sự vĩ đại và đạt được những kết quả to lớn, bạn đã có trong tay tấm bản đồ đi đúng đường hoặc bạn có bạn trai tuyệt vời. Tất cả những gì bạn cần làm để tạo ra một tương lai tuyệt vời cho bản thân là hãy đọc cuốn sách này, nó quyết định cách bạn sẽ áp dụng cho cuộc đời bạn, viết ra một kế hoạch và sau đó kích thích lòng nhiệt huyết để thực hiện nó.
+            “Thay đổi suy nghĩ, thay đổi cuộc đời ”chỉ cho bạn cách khám phá những khả năng tiềm ẩn của bạn, mọi người và tác động vào những nguồn lực bạn cần để đạt được bất kỳ thành công nào mà bạn đặt ra cho bản thân.
+            Bạn sẽ hoàn toàn ngạc nhiên về bản thân khi bạn bắt đầu đạt được những thành công mới và tốt hơn bằng cách sử dụng những khái niệm và ý tưởng này trong mọi việc bạn làm. Đây là những khái niệm được sử dụng bởi tất cả những người chiến thắng, những nhà triệu phú và những người đi đầu trong mọi lĩnh vực.
+            Cuốn sách này giúp sẽ bạn học được quá trình đi từng bước một để đạt được thành công lớn mà thực sự bạn sẽ làm được, một cách dễ dàng và hiệu quả. Chiến lược hướng đến thành công rất logic, lôi cuốn và đặc biệt rất phù hợp và có lợi mà nó thực sự là một phát minh trong sự thể hiện cá nhân.
+            Khi bạn nghĩ, tại sao không nghĩ những suy nghĩ vĩ đại và đạt được những thành công vĩ đại?
+            Hãy sẵn sàng cho một trong những cuộc phiêu lưu và những cuộc thám hiểm vĩ đại trên mặt trận vĩ đại mà đầu tiên chính là suy nghĩ của bạn! Bạn sẽ có một kinh nghiệm tuyệt vời.',
+            'avatar' => 'huong_nghiep_11.jpg',
+            'pro_att_id' => 'Hướng nghiệp',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 20.000,
+            'author' => 'Đức Minh',
+            'pro_pub_id' => 'NXB Lao Động',
+            'sale' => '65%'
+        ]);
+        Product::create([
+            'name' => '[Tóm tắt sách] Cách tư duy khác về thành công',
+            'description' => 'Đây là bản tóm tắt của sách Cách Tư Duy Khác Về Thành Công. Các nội dung trong sách đã được Alpha Books giản lược một cách ngắn gọn và cô đọng nhất song tổng thể vẫn đầy đủ so với bản gốc.
+            Tóm tắt cuốn sách "Cách Tư Duy Khác Về Thành Công": Vua Solomon của người Israel cổ đại, vị vua nổi tiếng thông thái và giàu có từng nói: "Những ai ham thích tiền bạc sẽ không bao giờ cảm thấy đủ, và ai khao khát sự giàu có sẽ không bao giờ thấy thỏa mãn với những gì mình kiếm được". Tài sản, quyền lực, tham vọng,.. tất cả đều không phải là thước đo thật sự của thành công. Vậy thành công đích thực là gì?
+            Trong cuốn sách này, tác giả John C.Maxwell sẽ chia sẻ với chúng ta cách tư duy khác biệt về thành công. Để đến đích cuối cùng, bạn phải chuẩn bị hành trang đầy đủ, vượt qua những trở ngại, và đừng đi một mình, hãy để gia đình, những người bạn đồng hành sát cánh cùng bạn trong suốt hành trình.
+            Chìa khóa thành công hoàn toàn trong tầm tay bạn, đó là:
+            Xác định rõ ràng mục đích cuộc sống
+            Phát triển tối đa tiềm năng của bản thân
+            Giúp mọi người cùng tỏa sáng
+            Các tư duy khác về thành công chính là tấm bản đồ tuyệt vời giúp bạn chu du qua miền đất thành công, luôn tiến lên phía trước, sống cuộc đợi mơ ước và không ngừng hoàn thiện.',
+            'avatar' => 'huong_nghiep_12.jpg',
+            'pro_att_id' => 'Hướng nghiệp',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 20.000,
+            'author' => 'John C. Maxwell',
+            'pro_pub_id' => 'NXB Lao Động Xã Hội',
+            'sale' => '65%'
+        ]);
+        Product::create([
+            'name' => '[Tóm tắt sách] Du học trên đất Mỹ',
+            'description' => 'Đây là bản tóm tắt của sách Du học trên đất Mỹ. Các nội dung trong sách đã được Alpha Books giản lược một cách ngắn gọn và cô đọng nhất song tổng thể vẫn đầy đủ so với bản gốc.
+            Tạm biệt Trung Quốc, Vương Quyên sang Mỹ du học. Chặng đường hòa nhập đầy gian nan, vất vả, nhiều lúc khiến cô muốn từ bỏ. Nó không hề giống với phim ảnh hay những tưởng tượng trước kia của cô và mọi người. Cô đã phải nếm trải đủ mọi cảm xúc: tuyệt vọng, ân hận, nuối tiếc… Nhưng cùng với nghị lực của mình, cô đã vượt qua được tất cả, tích lũy được rất nhiều kinh nghiệm trong nhiều lĩnh vực, và cuối cùng cũng đạt được niềm mơ ước bấy lâu của mình.
+            Cuốn sách này dành cho:
+            Những ai sắp hoặc ước mơ tương lai sẽ bước trên con đường du học.
+            Những du học sinh đang chiến đấu một mình để thực hiện ước mơ.
+            Những người trẻ tuổi sắp hoặc vừa mới bước chân vào xã hội, cũng như những ai đang một mình vật lộn thực hiện ước mơ nơi đất khách quê người.',
+            'avatar' => 'huong_nghiep_13.jpg',
+            'pro_att_id' => 'Hướng nghiệp',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 20.000,
+            'author' => 'Vương Quyên',
+            'pro_pub_id' => 'NXB Lao Động',
+            'sale' => '35%'
+        ]);
+        Product::create([
+            'name' => '[Tóm tắt sách] Hộ chiếu xanh: Hành trang của những công dân toàn cầu - Hành trình ra biển lớn',
+            'description' => 'Đây là bản tóm tắt của sách Hộ chiếu xanh:  Hành trang của những công dân toàn cầu - Hành trình ra biển lớn. Các nội dung trong sách đã được Alpha Books giản lược một cách ngắn gọn và cô đọng nhất song tổng thể vẫn đầy đủ so với bản gốc.
+            Sau thành công của cuốn sách Hộ Chiếu Xanh đi quanh thế giới: Những bước để trở thành công dân toàn cầu, Hộ Chiếu Xanh đã quay trở lại với một phiên bản mới trẻ trung, sinh động và nhiều thông tin bổ ích.
+            Tiếp tục sứ mệnh truyền cảm hứng cho người Việt trẻ vươn mình ra thế giới, cuốn sách Hộ Chiếu Xanh: Hành trang của những công dân toàn cầu – Hành trình ra biển lớn là cuốn cẩm nang thiết thực dành cho những bạn đang có dự định và chuẩn bị đi du học. Cuốn sách gồm 4 phần chính: Tiếng gọi ra khơi – Chuẩn bị hành trang – Vượt sóng cả – Chinh phục đại dương. Mỗi phần bao gồm những kỹ năng mà các bạn trẻ cần chuẩn bị để chuyến hành trình tương lai được suôn sẻ, hạn chế những “rủi ro” không đáng có.
+            Được viết bởi các bạn trẻ người Việt và nước ngoài, cuốn sách đa dạng về nội dung và bao quát được nhiều khía cạnh, giúp bạn có góc nhìn đa chiều về việc chuẩn bị hành trang hòa nhập với môi trường mới, con người mới.
+            Đặc biệt trong cuốn sách bạn có thể bắt gặp những “công dân Việt toàn cầu” như: Trần Hùng John, Huyền Chip, Trần Thị Thùy Trang, Hồ Thu Hương, Chu Đình Tới… Họ sẽ chia sẻ về hành trình vươn ra biển lớn của mình, những vấp ngã, những điều họ học được sau mỗi hành trình.
+            Hộ chiếu xanh:  Hành trang của những công dân toàn cầu - Hành trình ra biển lớn là hành trang bạn không thể thiếu trong chiếc va li của mình.
+            Waka xin trân trọng giới thiệu sách [Tóm tắt sách] Hộ chiếu xanh:  Hành trang của những công dân toàn cầu - Hành trình ra biển lớn.',
+            'avatar' => 'huong_nghiep_14.jpg',
+            'pro_att_id' => 'Hướng nghiệp',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 35.000,
+            'author' => 'Nhiều tác giả',
+            'pro_pub_id' => 'NXB Thanh Niên',
+            'sale' => '30%'
+        ]);
+        Product::create([
+            'name' => '[Tóm tắt sách] Trọn nghề, vẹn nghiệp',
+            'description' => 'Đây là bản tóm tắt của sách Trọn nghề, vẹn nghiệp. Các nội dung trong sách đã được Alpha Books giản lược một cách ngắn gọn và cô đọng nhất song tổng thể vẫn đầy đủ so với bản gốc.
+            Trong Trọn nghề, vẹn nghiệp, hai tác giả Stephen R. Covey và Jennifer Colosimo đã mang đến chúng ta vô vàn cơ hội từ nền kinh tế “kiến thức” đối với những ai đang bươn chải với nghề nghiệp của mình. Họ đã liệt kê những phương pháp giúp con người thay đổi cách suy nghĩ và hành động đối với sự nghiệp, và nâng cấp sự nghiệp bản thân từ tầm vóc xoàng xĩnh lên một tầm cao mới. Covey và Colosimo đã lý giải làm thế nào những công cụ phong phú và phù hợp nhất có thể được vận dụng nhằm khẳng định sức mạnh và niềm đam mê của mỗi người. Những công cụ này chính là bảo bối giúp mỗi cá nhân vạch ra con đường sự nghiệp họ nên theo đuổi, và phương pháp giúp họ tận hưởng thành công mĩ mãn từ vị trí trong hiện tại và tương lai của họ.',
+            'avatar' => 'huong_nghiep_15.jpg',
+            'pro_att_id' => 'Hướng nghiệp',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 20.000,
+            'author' => 'Stephen R. Covey, Jennifer Colosimo',
+            'pro_pub_id' => 'Đang cập nhật',
+            'sale' => '30%'
+        ]);
+        Product::create([
+            'name' => '[Tóm tắt sách] Nghề nào cho bạn nghề nào cho tôi',
+            'description' => 'Đây là bản tóm tắt của sách Nghề nào cho bạn nghề nào cho tôi. Các nội dung trong sách đã được Alpha Books giản lược một cách ngắn gọn và cô đọng nhất song tổng thể vẫn đầy đủ so với bản gốc.
+            Tóm tắt cuốn sách "Nghề Nào Cho Bạn Nghề Nào Cho Tôi": "Với hàng nghìn người Mỹ, kiệt tác dài 276 trang của Shoya Zichy, cuốn Nghề Nào Cho Bạn Nghề Nào Cho Tôi đã cùng lúc chấm dứt bóng ma khiếp đảm của nạn thất nghiệp và làm thoả mãn những người đang buồn rầu trước sự biến đổi phức tạp của nền kinh tế quốc gia và thế giới..."
+            Tính cách phản ánh hành động tưởng như là chuyện bình thường, nhưng thực tế, hầu hết mọi người đều không có được công việc thực sự phù hợp với tính cách của họ. Career Match sẽ cùng bạn thực hiện bài tự kiểm tra đơn giản trong 10 phút để xác định kiểu tính cách cụ thể của bạn, từ đó giúp bạn:
+            Xác định được các loại công việc sẽ gây hứng thú và đem lại niềm vui cho bạn
+            Xác định ông chủ phù hợp và môi trường làm việc bạn cần phát triển
+            Xác nhận tính đúng đắn của con đường bạn đang đi hoặc giúp bạn tìm thấy một hướng mới tốt hơn.
+            Nếu công việc bạn đang làm không khiến bạn thấy thực sự hồ hởi và say mê, thì đã đến lúc bạn nên nghĩ đến một nghề khác. Hãy đọc kỹ cuốn sách, bạn sẽ thấy những lời giải thích hợp lý về lựa chọn nghề nghiệp và những câu chuyện có thật về những người đã thực sự cảm thấy hài lòng vì công việc phù hợp với tính cách của họ, và họ đã gặt hái được nhiều thành công với nghề nghiệp đó.',
+            'avatar' => 'huong_nghiep_16.jpg',
+            'pro_att_id' => 'Hướng nghiệp',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 20.000,
+            'author' => 'Shoya Zichy - Ann Bidou',
+            'pro_pub_id' => 'NXB Lao Động Xã Hội',
+            'sale' => '30%'
+        ]);
+        Product::create([
+            'name' => '[Tóm tắt sách] Nghề nào cho bạn nghề nào cho tôi',
+            'description' => 'Đây là bản tóm tắt của sách Nghề nào cho bạn nghề nào cho tôi. Các nội dung trong sách đã được Alpha Books giản lược một cách ngắn gọn và cô đọng nhất song tổng thể vẫn đầy đủ so với bản gốc.
+            Tóm tắt cuốn sách "Nghề Nào Cho Bạn Nghề Nào Cho Tôi": "Với hàng nghìn người Mỹ, kiệt tác dài 276 trang của Shoya Zichy, cuốn Nghề Nào Cho Bạn Nghề Nào Cho Tôi đã cùng lúc chấm dứt bóng ma khiếp đảm của nạn thất nghiệp và làm thoả mãn những người đang buồn rầu trước sự biến đổi phức tạp của nền kinh tế quốc gia và thế giới..."
+            Tính cách phản ánh hành động tưởng như là chuyện bình thường, nhưng thực tế, hầu hết mọi người đều không có được công việc thực sự phù hợp với tính cách của họ. Career Match sẽ cùng bạn thực hiện bài tự kiểm tra đơn giản trong 10 phút để xác định kiểu tính cách cụ thể của bạn, từ đó giúp bạn:
+            Xác định được các loại công việc sẽ gây hứng thú và đem lại niềm vui cho bạn
+            Xác định ông chủ phù hợp và môi trường làm việc bạn cần phát triển
+            Xác nhận tính đúng đắn của con đường bạn đang đi hoặc giúp bạn tìm thấy một hướng mới tốt hơn.
+            Nếu công việc bạn đang làm không khiến bạn thấy thực sự hồ hởi và say mê, thì đã đến lúc bạn nên nghĩ đến một nghề khác. Hãy đọc kỹ cuốn sách, bạn sẽ thấy những lời giải thích hợp lý về lựa chọn nghề nghiệp và những câu chuyện có thật về những người đã thực sự cảm thấy hài lòng vì công việc phù hợp với tính cách của họ, và họ đã gặt hái được nhiều thành công với nghề nghiệp đó.',
+            'avatar' => 'huong_nghiep_16.jpg',
+            'pro_att_id' => 'Kỹ năng làm việc',
+            'pro_cate_id' => 'Kỹ năng',
+            'price' => 20.000,
+            'author' => 'Shoya Zichy - Ann Bidou',
+            'pro_pub_id' => 'NXB Lao Động Xã Hội',
+            'sale' => '30%'
         ]);
     }
 }

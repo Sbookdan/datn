@@ -6,6 +6,9 @@ $('.owl-carousel').owlCarousel({
         0: {
             items: 1
         },
+        400: {
+            items: 2
+        },
         600: {
             items: 3
         },
@@ -14,6 +17,7 @@ $('.owl-carousel').owlCarousel({
         }
     }
 })
+
 window.onscroll = function() {
     myFunction()
 };

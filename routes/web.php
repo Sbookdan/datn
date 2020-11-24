@@ -23,10 +23,10 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
+// Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
 
 //
-Route::get('/', [langdingpageController::class, 'index'])->name('index');
+Route::get('/', [langdingpageController::class, 'index'])->name('index')->middleware('verified');
 
 // login
 
@@ -39,22 +39,22 @@ Route::get('/logout', [HomeController::class, 'getLogout'])->name('logout');
 
 // Route::get('/','langdingpageController@index')->name('index');
 // Route::get('/blank','langdingpageController@blank');
-Route::get('/product', [langdingpageController::class, 'products'])->name('products')->middleware('verified');
+Route::get('/product', [langdingpageController::class, 'products'])->name('products');
 Route::get('/products-{id}', [langdingpageController::class, 'product'])->name('product');
 
 
-Route::get('/news', [langdingpageController::class, 'news'])->name('news')->middleware('verified');
-Route::get('/contact_user', [langdingpageController::class, 'contact'])->name('contact')->middleware('verified');
-Route::get('/auther', [langdingpageController::class, 'auther'])->name('auther')->middleware('verified');
+Route::get('/news', [langdingpageController::class, 'news'])->name('news');
+Route::get('/contact_user', [langdingpageController::class, 'contact'])->name('contact');
+Route::get('/auther', [langdingpageController::class, 'auther'])->name('auther');
 
 
-Route::get('/search', [SearchController::class, 'search'])->name('search')->middleware('verified');
+Route::get('/search', [SearchController::class, 'search'])->name('search');
 // Route::post('/search', [SearchController::class, 'search'])->name('search');
 
 // cart
 
 // Route::get('/', [cartController::class, 'shop'])->name('shop');
-Route::get('/cartuser', [cartController::class, 'cart'])->name('cart.index')->middleware('verified');
+Route::get('/cartuser', [cartController::class, 'cart'])->name('cart.index');
 Route::post('/add', [cartController::class, 'add'])->name('cart.store');
 
 Route::post('/update', [cartController::class, 'update'])->name('cart.update');
