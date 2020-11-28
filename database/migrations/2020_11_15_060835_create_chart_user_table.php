@@ -16,7 +16,7 @@ class CreateChartUserTable extends Migration
         Schema::create('chart_user', function (Blueprint $table) {
             $table->id();
             $table->integer('chart_user_id')->unsigned();
-            $table->integer('chart_cart_id')->unsigned();
+            $table->integer('chart_pay_id')->unsigned();
             $table->timestamps();
         });
     }

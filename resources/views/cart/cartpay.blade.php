@@ -97,7 +97,7 @@
             </div>
             <br>
             <a href="{{route('products')}}" class="btn btn-dark">Tiếp Tục Mua Sắm</a>
-            <a href="#" class="btn btn-success">Thanh Toán Hoán Đơn</a>
+            <a href="{{route('cart.checkout')}}" class="btn btn-success">Thanh Toán Hoán Đơn</a>
         </div>
         @endif
     </div>

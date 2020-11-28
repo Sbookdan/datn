@@ -16,8 +16,11 @@ class CreatePayproductTable extends Migration
         Schema::create('pay', function (Blueprint $table) {
             $table->id();
             $table->integer('pay_user_id')->unsigned();
-            $table->integer('pay_cart_id')->unsigned();
+            $table->integer('cart_product_id')->unsigned();
+            $table->integer('cart_shopping_free_id')->unsigned();
             $table->integer('pay_payment_methods_id')->unsigned();
+            $table->string('number')->nullable();
+            $table->string('total')->nullable();
             $table->timestamps();
         });
     }

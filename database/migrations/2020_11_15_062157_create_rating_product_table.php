@@ -16,7 +16,7 @@ class CreateRatingProductTable extends Migration
         Schema::create('rating_product', function (Blueprint $table) {
             $table->id();
             $table->integer('ra_pro_id')->unsigned();
-            $table->integer('ra_cart_id')->unsigned();
+            $table->integer('ra_pay_id')->unsigned();
             $table->timestamps();
         });
     }

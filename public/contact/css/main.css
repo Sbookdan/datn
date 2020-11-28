@@ -328,7 +328,7 @@ iframe {
   background: transparent;
   font-family: Montserrat-Regular;
   font-size: 15px;
-  color: #333333;
+  color: #ffffff;
   line-height: 1.2;
   padding: 0 25px 0 60px;
 }
@@ -568,4 +568,9 @@ textarea.input100 {
 
 .btn-hide-contact100:hover {
   opacity: 1;
+}
+
+.alert-success {
+  font-size: large;
+  text-align: center;
 }

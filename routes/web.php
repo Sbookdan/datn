@@ -6,6 +6,8 @@ use App\Http\Controllers\langdingpageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\cartController;
+use App\Http\Controllers\contactController;
+use App\Http\Controllers\payController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,13 +55,20 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 // cart
 
-// Route::get('/', [cartController::class, 'shop'])->name('shop');
 Route::get('/cartuser', [cartController::class, 'cart'])->name('cart.index');
 Route::post('/add', [cartController::class, 'add'])->name('cart.store');
 
 Route::post('/update', [cartController::class, 'update'])->name('cart.update');
 Route::post('/remove', [cartController::class, 'remove'])->name('cart.remove');
 Route::post('/clear', [cartController::class, 'clear'])->name('cart.clear');
+
+// Send Email
+
+Route::post('/message/send', [contactController::class, 'sendEmail'])->name('send.email');
+
+// Checkout
+Route::get('/cart/checkout', [payController::class, 'checkout'])->name('cart.checkout');
+Route::post('/checkout/momo', [payController::class, 'momo'])->name('checkout.momo.order');
 
 // Admin
 Route::group(['middleware' => ['auth','admin']], function () {
