@@ -128,6 +128,7 @@ class LoginController extends Controller
             // update the avatar and provider that might have changed
             $user->update([
                 'name' => $providerUser->name,
+                'avatar' => $providerUser->avatar,
                 'provider' => $driver,
                 'provider_id' => $providerUser->id,
                 'access_token' => $providerUser->token

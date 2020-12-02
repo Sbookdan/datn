@@ -2,6 +2,10 @@
 
 @section('title', 'Cart')
 
+@section('style')
+
+@stop
+
 @section('content')
 <div class="container" style="margin-top: 80px">
     <nav aria-label="breadcrumb">
@@ -103,4 +107,7 @@
     </div>
     <br><br>
 </div>
+
+@section('script')
+@stop
 @endsection

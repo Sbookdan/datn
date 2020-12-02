@@ -58,7 +58,7 @@ class contactController extends Controller
                 'body_message' => $request->get('message'),
             ),
             function ($message) use ($request) {
-                $message->from($request->email);
+                $message->from($request->input('email'));
                 $message->to('truongdang20002@gmail.com');
             }
         );

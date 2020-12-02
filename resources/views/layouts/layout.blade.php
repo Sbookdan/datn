@@ -64,6 +64,20 @@
     <script src="../js/main.js "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/./js/bootstrap-select.min.js "></script>
     <script src="../js/hehe.js "></script>
+    <script>
+    function searchToggle(obj, evt) {
+        var container = $(obj).closest('.search-wrapper');
+        if (!container.hasClass('active')) {
+            container.addClass('active');
+            evt.preventDefault();
+        } else if (container.hasClass('active') && $(obj).closest('.input-holder').length == 0) {
+            container.removeClass('active');
+            // clear input
+            container.find('.search-input').val('');
+        }
+    }
+    </script>
+    @yield('script')
 </body>
 
 </html>

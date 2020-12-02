@@ -43,11 +43,15 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav m-auto">
-                <li class="nav-item active"><a href="{{route('index'),}}" class="nav-link" aria-selected="true">Trang Chủ</a></li>
-                <li class="nav-item"><a href="{{route('products')}}" class="nav-link" aria-selected="false">Sản Phẩm</a></li>
+                <li class="nav-item active"><a href="{{route('index'),}}" class="nav-link" aria-selected="true">Trang
+                        Chủ</a></li>
+                <li class="nav-item"><a href="{{route('products')}}" class="nav-link" aria-selected="false">Sản Phẩm</a>
+                </li>
                 <li class="nav-item"><a href="{{route('news')}}" class="nav-link" aria-selected="false">Tin Tức</a></li>
-                <li class="nav-item"><a href="{{route('contact')}}" class="nav-link" aria-selected="false">Liên Hệ</a></li>
-                <li class="nav-item"><a href="{{route('auther')}}" class="nav-link" aria-selected="false">Tác Giả</a></li>
+                <li class="nav-item"><a href="{{route('contact')}}" class="nav-link" aria-selected="false">Liên Hệ</a>
+                </li>
+                <li class="nav-item"><a href="{{route('auther')}}" class="nav-link" aria-selected="false">Tác Giả</a>
+                </li>
                 @guest
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -73,7 +77,8 @@
                         {{ Auth::user()->name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#" style="font-size: 18px;">Trang Cá Nhân</a>
+                        <a class="dropdown-item" href="{{route('profile.user',Auth::user()->id)}}"
+                            style="font-size: 18px;">Trang Cá Nhân</a>
                         @if(Auth::user()->role == 1)
                         <a class="dropdown-item" href="/admin" style="font-size: 18px;">
                             Admin

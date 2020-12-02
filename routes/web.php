@@ -8,6 +8,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\cartController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\payController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,6 +67,10 @@ Route::post('/clear', [cartController::class, 'clear'])->name('cart.clear');
 
 Route::post('/message/send', [contactController::class, 'sendEmail'])->name('send.email');
 
+// Profile
+
+Route::get('/profile', [UserController::class, 'profileUser'])->name('profile.user');
+
 // Checkout
 Route::get('/cart/checkout', [payController::class, 'checkout'])->name('cart.checkout');
 Route::post('/checkout/momo', [payController::class, 'momo'])->name('checkout.momo.order');
@@ -110,7 +115,7 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('tkupdate/{id}/{role}',              [App\Http\Controllers\usersController::class, 'tkupdate']);
 
     // Contact
-    Route::get('/contact',                          [App\Http\Controllers\contactController::class, 'index']);
+    Route::get('/contact_admin',                          [App\Http\Controllers\contactController::class, 'index'])->name('contact.admin');
     Route::get('contact/destroy/{id}',              [App\Http\Controllers\contactController::class, 'destroy']);
 
     // Comments

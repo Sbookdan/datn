@@ -199,7 +199,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="contact" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('contact.admin')}}" aria-expanded="false">
                                 <i class="icon-Mailbox-Empty"></i>
                                 <span class="hide-menu">Contact</span>
                             </a>
