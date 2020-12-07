@@ -26,9 +26,7 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-// Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('verified');
-
-//
+// Index
 Route::get('/', [langdingpageController::class, 'index'])->name('index')->middleware('verified');
 
 // login
@@ -39,26 +37,30 @@ Route::get('oauth/{driver}/callback', [LoginController::class, 'handleProviderCa
 
 Route::get('/logout', [HomeController::class, 'getLogout'])->name('logout');
 
-
-// Route::get('/','langdingpageController@index')->name('index');
-// Route::get('/blank','langdingpageController@blank');
+// product
 Route::get('/product', [langdingpageController::class, 'products'])->name('products');
 Route::get('/products-{id}', [langdingpageController::class, 'product'])->name('product');
 
+// cata
+Route::get('/products/cata/{id}', [langdingpageController::class, 'catelogi'])->name('prodict.catelogi');
 
+// Bog
 Route::get('/news', [langdingpageController::class, 'news'])->name('news');
+
+// contact
 Route::get('/contact_user', [langdingpageController::class, 'contact'])->name('contact');
+
+// author
 Route::get('/auther', [langdingpageController::class, 'auther'])->name('auther');
+Route::get('/author-{author}', [langdingpageController::class, 'author'])->name('author');
 
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
-// Route::post('/search', [SearchController::class, 'search'])->name('search');
 
 // cart
 
 Route::get('/cartuser', [cartController::class, 'cart'])->name('cart.index');
 Route::post('/add', [cartController::class, 'add'])->name('cart.store');
-
 Route::post('/update', [cartController::class, 'update'])->name('cart.update');
 Route::post('/remove', [cartController::class, 'remove'])->name('cart.remove');
 Route::post('/clear', [cartController::class, 'clear'])->name('cart.clear');
@@ -70,6 +72,8 @@ Route::post('/message/send', [contactController::class, 'sendEmail'])->name('sen
 // Profile
 
 Route::get('/profile', [UserController::class, 'profileUser'])->name('profile.user');
+Route::get('/profile/{id}/edit', [UserController::class, 'edit'])->name('profile.users.edit');
+Route::post('/profile/{id}/update', [UserController::class, 'update'])->name('profile.users.update');
 
 // Checkout
 Route::get('/cart/checkout', [payController::class, 'checkout'])->name('cart.checkout');

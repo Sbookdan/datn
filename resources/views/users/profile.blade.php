@@ -4,12 +4,10 @@
 
 @section('css')
 <style>
-    address {
-        font-style: normal;
-        line-height: inherit;
-        margin-bottom: 1rem;
+    .imgs img {
+        width: auto;
+        height: auto;
     }
-
 
     @media screen and (prefers-reduced-motion: reduce) {
         .btn {
@@ -1262,30 +1260,20 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
-                            @if($user->provider == 'google')
-                            <div class="imgs" style="width: 200px; height: 220px;">
-                                <img src="{{ Auth::user()->avatar }}" class="rounded-circle">
+                                @if($user->provider != '')
+                                <div class="imgs">
+                                    <img src="{{ Auth::user()->avatar }}" class="rounded-circle">
+                                </div>
+                                @elseif($user->avatar != '')
+                                <div class="imgs" style="width: 500px; height: 70px;">
+                                    <img src="{{ asset('/img/user/'.$user->avatar) }}" class="img-thumbnail">
+                                </div>
+                                @else
+                                <div class="imgs">
+                                    <img class="rounded-circle" src="{{ asset('/img/download.png') }}" alt="">
+                                </div>
+                                @endif
                             </div>
-                            @elseif($user->provider == 'facebook')
-                            <div class="imgs" style="width: 200px; height: 220px;">
-                                <img src="{{ Auth::user()->avatar }}" class="rounded-circle">
-                            </div>
-                            @elseif($user->avatar != '')
-                            <div class="imgs" style="width: 200px; height: 220px;">
-                                <img src="{{ asset('/img/user/'.$user->avatar) }}" class="rounded-circle">
-                            </div>
-                            @else
-                            <div class="imgs">
-                                <img class="rounded-circle" src="{{ asset('/img/download.png') }}" alt="">
-                            </div>
-                            @endif
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
-                        <div class="d-flex justify-content-between">
-                            <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>
-                            <a href="#" class="btn btn-sm btn-default float-right">Message</a>
                         </div>
                     </div>
                     <div class="card-body pt-0 pt-md-4">
@@ -1309,55 +1297,54 @@
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <h3 class="mb-0">My account</h3>
+                                <h3 class="mb-0">Thông Tin</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                                <a href="{{route('profile.users.edit',$user->id)}}" class="btn btn-sm btn-primary">Chỉnh sửa</a>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form>
-                            <h6 class="heading-small text-muted mb-4">User information</h6>
-                            <div class="pl-lg-4">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group focused">
-                                            <label class="form-control-label" for="input-username"
-                                                style="color:black">Username</label>
-                                            <input type="text" id="input-username"
-                                                class="form-control form-control-alternative" placeholder="Username"
-                                                value="{{$user->name}}">
-                                        </div>
+                        <h6 class="heading-small text-muted mb-4">Thông tin người dùng</h6>
+                        <div class="pl-lg-4">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="input-username" style="color:black">Họ và Tên</label>
+                                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="{{$user->name}}">
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-email"
-                                                style="color:black">Email address</label>
-                                            <input type="email" id="input-email"
-                                                class="form-control form-control-alternative"
-                                                placeholder="jesse@example.com" value="{{$user->email}}">
-                                        </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label" for="input-email" style="color:black">Email</label>
+                                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com" value="{{$user->email}}">
                                     </div>
                                 </div>
                             </div>
-                            <hr class="my-4">
-                            <!-- Address -->
-                            <h6 class="heading-small text-muted mb-4">Contact information</h6>
-                            <div class="pl-lg-4" style="margin-bottom: 25px;">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group focused">
-                                            <label class="form-control-label" for="input-address"
-                                                style="color:black">Address</label>
-                                            <input id="input-address" class="form-control form-control-alternative"
-                                                placeholder="Home Address"
-                                                value="{{$user->address}}" type="text">
-                                        </div>
+                        </div>
+                        <hr class="my-4">
+                        <!-- Address -->
+                        <h6 class="heading-small text-muted mb-4">Thông tin liên hệ</h6>
+                        <div class="pl-lg-4" style="margin-bottom: 25px;">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="input-address" style="color:black">Địa chỉ</label>
+                                        <input id="input-address" class="form-control form-control-alternative" placeholder="Địa chỉ nhà" value="{{$user->address}}" type="text">
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="input-username" style="color:black">Số điện thoại</label>
+                                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Số điện thoại" value="{{$user->phone}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

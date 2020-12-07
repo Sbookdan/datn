@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\pay;
+use App\Models\cart;
+use App\Models\Product;
+use App\Models\shipping_fee;
 use Illuminate\Support\Facades\DB;
 use App\Models\payment_methods;
 
@@ -36,10 +39,23 @@ class payController extends Controller
 
     // user
 
-    public function checkout()
+    public function checkout(Request $request)
     {
-        return view('cart.payment');
+        // $cart = new cart();
+        // $product = new product();
+        $shipping_fee = shipping_fee::all();
+
+        // $cart->cart_product_id = $product->id;
+        // $cart->cart_user_id = auth()->user()->id;
+        // $cart->cart_shipping_fee_id = $shipping_fee->id;
+        // $cart->number = $request->number;
+        // $cart->total = $request->total;
+
+        // $cart->save();
+
+        return view('cart.payment',compact('shipping_fee'));
     }
+
     public function momo(Request $request)
     {
         

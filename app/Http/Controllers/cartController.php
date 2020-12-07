@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use App\Models\Product;
 
 class cartController extends Controller
 {
@@ -25,7 +26,7 @@ class cartController extends Controller
     }
     public function cart()  {
         $cartCollection = \Cart::getContent();
-        // dd($cartCollection);
+        // dd($product = Product::where('id', '=', 1));
         return view('cart.cartpay')->withTitle('E-COMMERCE STORE | CART')->with(['cartCollection' => $cartCollection]);;
     }
     public function pay()

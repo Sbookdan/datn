@@ -11,16 +11,16 @@
               <tr>
                   <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="persist">Banner</th>
                   <th scope="col" data-tablesaw-sortable-col data-tablesaw-sortable-default-col data-tablesaw-priority="3">ID</th>
-                  <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Name</th>
+                  <!-- <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="2">Name</th> -->
                   <th scope="col" data-tablesaw-sortable-col data-tablesaw-priority="4">Chỉnh/Xóa</th>
               </tr>
           </thead>
           <tbody>
             @foreach ($ds as $row)
               <tr>
-                  <td class="title"><a class="link" href="javascript:void(0)"><img src="{{ $row->avatar}}" width="500px" alt="Lỗi"></a></td>
+                  <td class="title"><a class="link" href="javascript:void(0)"><img src="{{ asset('/img/banner/'.$row->avatar) }}" width="500px" alt="Lỗi"></a></td>
                   <td>{{ $row->id}}</td>
-                  <td>{{ $row->name}}</td>
+                  <!-- <td>{{ $row->name}}</td> -->
                   <td>                         
                     <form method="get" action="banner/destroy/{{$row->id }}"> 
                     {{ csrf_field()}} {!! method_field('delete') !!}

@@ -2,15 +2,12 @@
 
 @section('title', 'Sbook')
 @section('content')
-<section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_5.jpg');"
-    data-stellar-background-ratio="0.5">
+<section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_5.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate mb-0 text-center">
-                <p class="breadcrumbs mb-0"><span class="mr-2"><a href="{{route('index')}}">Trang Chủ <i
-                                class="fa fa-chevron-right"></i></a></span> <span>BOOKS <i
-                            class="fa fa-chevron-right"></i></span></p>
+                <p class="breadcrumbs mb-0"><span class="mr-2"><a href="{{route('index')}}">Trang Chủ <i class="fa fa-chevron-right"></i></a></span> <span>BOOKS <i class="fa fa-chevron-right"></i></span></p>
                 <h1 class="mb-0 bread">BOOKS</h1>
             </div>
         </div>
@@ -25,8 +22,7 @@
                     @foreach($product as $pro)
                     <div class="col-md-4 d-flex">
                         <div class="book-wrap">
-                            <div class="img d-flex justify-content-end w-100"
-                                style="background-image: url(img/product/{{$pro->avatar}}); height: 350px;">
+                            <div class="img d-flex justify-content-end w-100" style="background-image: url(img/product/{{$pro->avatar}}); height: 350px;">
                                 <div class="in-text">
                                     <form action="{{ route('cart.store') }}" method="POST">
                                         {{ csrf_field() }}
@@ -37,17 +33,14 @@
                                         <input type="hidden" value="{{ $pro->author }}" id="slug" name="author">
                                         <input type="hidden" value="{{ $pro->sale }}" id="slug" name="sale">
                                         <input type="hidden" value="1" id="quantity" name="quantity">
-                                        <button class="icon d-flex align-items-center justify-content-center"
-                                            class="tooltip-test" data-toggle="tooltip" data-placement="left"
-                                            title="Mua Sách {{$pro->name}}">
+                                        <button class="icon d-flex align-items-center justify-content-center" class="tooltip-test" data-toggle="tooltip" data-placement="left" title="Mua Sách {{$pro->name}}">
                                             <span class="flaticon-shopping-cart"></span>
                                         </button>
                                     </form>
-                                    <button class="icon d-flex align-items-center justify-content-center"
-                                        data-toggle="tooltip" data-placement="left" title="Xem {{$pro->name}}">
+                                    <button class="icon d-flex align-items-center justify-content-center" data-toggle="tooltip" data-placement="left" title="Xem {{$pro->name}}">
                                         <a href="{{route('product',[$pro->id])}}">
-											<span class="flaticon-visibility"></span>
-										</a>
+                                            <span class="flaticon-visibility"></span>
+                                        </a>
                                     </button>
                                 </div>
                             </div>
@@ -82,7 +75,7 @@
 
             <div class="col-lg-3 sidebar pl-lg-3 ftco-animate">
                 <div class="sidebar-box">
-                    <form action="#" class="search-form">
+                    <form method="get" action="{{route('search')}}" class="search-form">
                         <div class="form-group">
                             <span class="fa fa-search"></span>
                             <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
@@ -104,19 +97,8 @@
                     <h3>Top Tác Giả</h3>
                     <ul class="top">
                         @foreach($author as $author)
-                        <li><a href="#">{{$author->author}}</a></li>
+                        <li><a href="{{route('author',[$author->author])}}">{{$author->author}}</a></li>
                         @endforeach
-                        <!-- <li><a href="#">Sandra Park</a></li>
-              	<li><a href="#">Laura Preston</a></li>
-              	<li><a href="#">John Doe</a></li>
-              	<li><a href="#">Mc Gregor Douglas</a></li>
-              	<li><a href="#">Atom Night</a></li>
-              	<li><a href="#">Danny Green</a></li>
-              	<li><a href="#">Sonya Lopez</a></li>
-              	<li><a href="#">Archie Bochs</a></li>
-              	<li><a href="#">Jelian Coward</a></li>
-              	<li><a href="#">Mark Hatton</a></li>
-              	<li><a href="#">Madison Mc Collen</a></li> -->
                     </ul>
                 </div>
             </div>

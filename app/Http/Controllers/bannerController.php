@@ -8,8 +8,8 @@ use App\Models\banner;
 class bannerController extends Controller
 {
     public function index() {        
-        $ds=banner::select('id','name','avatar')
-        ->orderBy('id','desc')
+        $ds=banner::select('id','avatar')
+        ->orderBy('id','asc')
         ->paginate(5);
         return view('admin.banner.index', compact('ds'));
 }
@@ -34,7 +34,7 @@ class bannerController extends Controller
      */
     public function store(Request $request) {        
         $t = new banner([
-            'name' => $request->get('name'),
+            // 'name' => $request->get('name'),
             'avatar' => 'upload/'.$request->get('avatar'),
             ]);
         $t->save();
@@ -46,7 +46,7 @@ class bannerController extends Controller
     }
     public function update(Request $request, $id) {    
         $t = banner::find($id);
-        $t->name =   $request->get('name');
+        // $t->name =   $request->get('name');
         
         $getavatar = '';
         if($request->hasFile('avatar')){

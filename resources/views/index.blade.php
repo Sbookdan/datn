@@ -7,12 +7,9 @@
     <div class="main">
         <div class="row banner">
             <div class="slide-show">
-                <img class="mySlides img-fluid" src="./images/1253_new.jpg" alt="SlideShow" srcset="">
-                <img class="mySlides img-fluid" src="./images/slide_1.jpg" alt="SlideShow" srcset="">
-                <img class="mySlides img-fluid" src="./images/slide_2.jpg" alt="SlideShow" srcset="">
-                <img class="mySlides img-fluid" src="./images/slide_3.png" alt="SlideShow" srcset="">
-                <img class="mySlides img-fluid" src="./images/slide_4.png" alt="SlideShow" srcset="">
-
+                @foreach($banneruser as $buser)
+                <img class="mySlides img-fluid" src="./img/banner/{{$buser->avatar}}" alt="SlideShow" srcset="">
+                @endforeach
                 <button id="pre1" onclick="plusDivs(-1)">&#10094;</button>
                 <button id="next1" onclick="plusDivs(+1)">&#10095;</button>
 

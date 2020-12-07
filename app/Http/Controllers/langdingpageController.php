@@ -16,6 +16,7 @@ use App\Brand;
 use App\Slide;
 use App\Comment;
 use Auth;
+use App\Models\banner;
 
 class langdingpageController extends Controller
 {
@@ -30,7 +31,8 @@ class langdingpageController extends Controller
     $sachhot10 = Product::where('sale', '!=', 0)->orderBy('id', 'desc')
       ->whereMonth('created_at', '11')
       ->take(2)->get();
-      
+    $banneruser = banner::all();
+
     // $cateatt = DB::table('attached')
     //               ->whereExists(function ($query) {
     //                 $query->select(DB::raw(1))
@@ -69,7 +71,8 @@ class langdingpageController extends Controller
         'sachbanchay' => $sachbanchay,
         'sachhot10' => $sachhot10,
         'catalog' => $catalog,
-        'cateatt'=>$cateatt,
+        'cateatt' => $cateatt,
+        'banneruser' => $banneruser,
         // 'slides'=>$slide
       ]
     );
@@ -105,7 +108,6 @@ class langdingpageController extends Controller
     $catalog = Catalog::get();
     $author = Product::where("author", '>=', 0)->orderBy('id')->take(6)->get();
     $product = Product::paginate(6);
-
     return view(
       'product',
       [
@@ -174,7 +176,26 @@ class langdingpageController extends Controller
   }
   public function news()
   {
-    return view('news');
+
+    $book9 =  DB::table('products')
+      ->orderBy('id', 'desc')
+      ->whereMonth('created_at', '11')
+      ->whereYear('created_at', '2020')
+      ->take(8)
+      ->get();
+    $book10 =  DB::table('products')
+      ->orderBy('id', 'desc')
+      ->whereMonth('created_at', '12')
+      ->whereYear('created_at', '2020')
+      ->take(8)
+      ->get();
+    return view(
+      'news',
+      [
+        'book9' => $book9,
+        'book10' => $book10
+      ]
+    );
   }
   public function contact()
   {
@@ -182,6 +203,30 @@ class langdingpageController extends Controller
   }
   public function auther()
   {
-    return view('auther');
+    $author = Product::paginate(12);
+    return view(
+      'auther',
+      [
+        'author' => $author
+      ]
+    );
+  }
+  public function author(Request $req)
+  {
+    //   $comment = Comment::select('comment.*','users.name')->where('id_product','=',$req->id)->leftJoin('users','users.id','=','comment.id_user')->get();
+
+    $product = Product::where('author', $req->author)->get();
+
+    // $product->image = explode(',', $product->image);
+    $pro_att = Product::where('id', $req->author)->value('pro_att_id');
+    $pro = Product::where("pro_att_id", $pro_att)->distinct()->get();
+    return view(
+      'author-product',
+      [
+        'product' => $product,
+        'pro' => $pro
+      ]
+    );
+    //  dd($req->author);
   }
 }
