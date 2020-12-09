@@ -17,7 +17,7 @@ class CreatePayproductTable extends Migration
             $table->id();
             $table->integer('pay_user_id')->unsigned();
             $table->integer('cart_product_id')->unsigned();
-            $table->integer('cart_shopping_free_id')->unsigned();
+            $table->integer('cart_shopping_fee_id')->unsigned();
             $table->integer('pay_payment_methods_id')->unsigned();
             $table->string('number')->nullable();
             $table->string('total')->nullable();

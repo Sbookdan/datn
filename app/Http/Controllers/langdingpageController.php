@@ -219,6 +219,7 @@ class langdingpageController extends Controller
 
     // $product->image = explode(',', $product->image);
     $pro_att = Product::where('id', $req->author)->value('pro_att_id');
+    $pro_cate = Product::where('id', $req->pro_cate_id)->value('pro_att_id');
     $pro = Product::where("pro_att_id", $pro_att)->distinct()->get();
     return view(
       'author-product',

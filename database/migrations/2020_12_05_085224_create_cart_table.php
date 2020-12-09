@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateChartUserTable extends Migration
+class CreateCartTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateChartUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('chart_user', function (Blueprint $table) {
+        Schema::create('cart', function (Blueprint $table) {
             $table->id();
-            $table->integer('chart_user_id')->unsigned();
-            $table->integer('chart_cart_id')->unsigned();
+            $table->integer("cart_product_id")->unsigned();
+            $table->integer("cart_user_id")->unsigned();
+            $table->integer("cart_shipping_fee_id")->unsigned();
+            $table->integer("number")->unsigned();
+            $table->integer("total")->unsigned();
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ class CreateChartUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chart_user');
+        Schema::dropIfExists('cart');
     }
 }
