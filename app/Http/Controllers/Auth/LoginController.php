@@ -9,7 +9,7 @@ use App\Providers\RouteServiceProvider;
 
 use Exception;
 use Cache;
-
+use Cookie;
 
 use Carbon\Carbon;
 
@@ -58,6 +58,23 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    /**
+    * Send the response after the user was authenticated.
+    *
+    * @param \Illuminate\Http\Request $request
+    * @return \Illuminate\Http\Response
+    */
+    protected function sendLoginResponse(Request $request)
+    {
+        $customRememberMeTimeInMinutes = 10;  
+     $rememberTokenCookieKey = Auth::getRecallerName();  
+     Cookie::queue($rememberTokenCookieKey, Cookie::get($rememberTokenCookieKey), $customRememberMeTimeInMinutes);  
+     $request->session()->regenerate();  
+     $this->clearLoginAttempts($request);  
+     return $this->authenticated($request, $this->guard()->user())  
+         ?: redirect()->intended($this->redirectPath());  
     }
 
     protected $providers = [
@@ -128,7 +145,6 @@ class LoginController extends Controller
             // update the avatar and provider that might have changed
             $user->update([
                 'name' => $providerUser->name,
-                'avatar' => $providerUser->avatar,
                 'provider' => $driver,
                 'provider_id' => $providerUser->id,
                 'access_token' => $providerUser->token

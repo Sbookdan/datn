@@ -43,23 +43,16 @@
     <div class="row justify-content-center">
         <div class="col-lg-7">
             <br>
-            @if(\Cart::getTotalQuantity()>0)
-            <h4>{{ \Cart::getTotalQuantity()}} Sảm Phẩm</h4><br>
-            @else
-            <h4>Chưa Có Sảm Phẩm Trong Giỏ Hàng</h4><br>
-            <a href="/" class="btn btn-dark">Mua Hàng Sảm Phẩm</a>
-            @endif
-
-            @foreach($cartCollection as $item)
+            @foreach($carts as $item)
             <div class="row">
                 <div class="col-lg-3">
-                    <img src="{{ asset('/img/product/'.$item->attributes->avatar) }}" class="img-thumbnail" width="200"
+                    <img src="{{ asset('/img/product/'.$item->product_avatar) }}" class="img-thumbnail" width="200"
                         height="200">
                 </div>
                 <div class="col-lg-5">
                     <p>
-                        <b>Sách :</b>{{ $item->name }}<br>
-                        <b>Giá: </b>{{ $item->price }}.000 VND<br>
+                        <b>Sách :</b>{{ $item->product_name }}<br>
+                        <b>Giá: </b>{{ $item->product_price }}.000 VND<br>
                     </p>
                 </div>
                 <div class="col-lg-4">
@@ -68,7 +61,7 @@
                             {{ csrf_field() }}
                             <div class="form-group row">
                                 <input type="hidden" value="{{ $item->id}}" id="id" name="id">
-                                <input type="number" class="form-control form-control-sm" value="{{ $item->quantity }}"
+                                <input type="number" class="form-control form-control-sm" value="{{ $item->number }}"
                                     id="quantity" name="quantity" style="width: 70px; margin-right: 10px;">
                                 <button class="btn btn-secondary btn-sm" style="margin-right: 25px;"><i
                                         class="fa fa-edit"></i></button>
@@ -85,25 +78,19 @@
             </div>
             <hr>
             @endforeach
-            @if(count($cartCollection)>0)
-            <form action="{{ route('cart.clear') }}" method="POST">
-                {{ csrf_field() }}
-                <button class="btn btn-secondary btn-md">Xóa Hết Sảm Phẩm</button>
-            </form>
-            @endif
         </div>
-        @if(count($cartCollection)>0)
         <div class="col-lg-5">
             <div class="card">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><b>Tổng Giá: </b>{{ \Cart::getTotal() }}.000 VND</li>
+                    <li class="list-group-item"><b>Tổng Giá: </b><?php echo $total ?>.000 VND</li>
                 </ul>
             </div>
             <br>
             <a href="{{route('products')}}" class="btn btn-dark">Tiếp Tục Mua Sắm</a>
-            <a href="{{route('cart.checkout')}}" class="btn btn-success">Thanh Toán Hoán Đơn</a>
+            @foreach($carts as $item)
+            <a href="{{route('cart.checkout',$item->id)}}" class="btn btn-success">Thanh Toán Hoán Đơn</a>
+            @endforeach
         </div>
-        @endif
     </div>
     <br><br>
 </div>

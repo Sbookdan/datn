@@ -97,12 +97,6 @@
                                         <form action="{{ route('cart.store') }}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" value="{{ $product->id }}" id="id" name="id">
-                                            <input type="hidden" value="{{ $product->name }}" id="name" name="name">
-                                            <input type="hidden" value="{{ $product->price }}" id="price" name="price">
-                                            <input type="hidden" value="{{ $product->avatar }}" id="img" name="img">
-                                            <input type="hidden" value="{{ $product->author }}" id="slug" name="author">
-                                            <input type="hidden" value="{{ $product->sale }}" id="slug" name="sale">
-                                            <input type="hidden" value="1" id="quantity" name="quantity">
                                             <div class="row">
                                                 <button class="button" class="tooltip-test"
                                                     style="vertical-align:middle" title="Mua Sách">

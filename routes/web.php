@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\langdingpageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SearchController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\cartController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\payController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CartUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,13 +29,18 @@ Route::get('/', function () {
 Auth::routes(['verify' => true]);
 
 // Index
-Route::get('/', [langdingpageController::class, 'index'])->name('index')->middleware('verified');
+Route::get('/', [langdingpageController::class, 'index'])->name('index');
 
 // login
 
 Route::get('auth/social', [LoginController::class, 'showLoginForm'])->name('social.login');
 Route::get('oauth/{driver}', [LoginController::class, 'redirectToProvider'])->name('social.oauth');
 Route::get('oauth/{driver}/callback', [LoginController::class, 'handleProviderCallback'])->name('social.callback');
+
+// reset password
+
+Route::get('reset/password/{id}', [ResetPasswordController::class, 'resetpass'])->name('reset.password.user');
+Route::post('reset/password/{id}/update', [ResetPasswordController::class, 'updatepass'])->name('reset.password.update');
 
 Route::get('/logout', [HomeController::class, 'getLogout'])->name('logout');
 
@@ -58,26 +65,28 @@ Route::get('/author-{author}', [langdingpageController::class, 'author'])->name(
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 // cart
-
-Route::get('/cartuser', [cartController::class, 'cart'])->name('cart.index');
-Route::post('/add', [cartController::class, 'add'])->name('cart.store');
 Route::post('/update', [cartController::class, 'update'])->name('cart.update');
 Route::post('/remove', [cartController::class, 'remove'])->name('cart.remove');
 Route::post('/clear', [cartController::class, 'clear'])->name('cart.clear');
+
+// cart 2
+Route::get('/cartuser', [CartUserController::class, 'cart'])->name('cart.index');
+Route::post('/add_to_cart', [CartUserController::class, 'addtoCart'])->name('cart.store')->middleware('verified');
+Route::post('/remove', [CartUserController::class, 'remove'])->name('cart.remove');
+
+// checkout 2
+Route::get('/cart/checkout/{id}', [CartUserController::class, 'checkout'])->name('cart.checkout');
+Route::post('/checkout/paycart', [CartUserController::class, 'paycart'])->name('checkout.pay.cart');
 
 // Send Email
 
 Route::post('/message/send', [contactController::class, 'sendEmail'])->name('send.email');
 
-// Profile
+// Profile User
 
-Route::get('/profile', [UserController::class, 'profileUser'])->name('profile.user');
+Route::get('/profile/{id}', [UserController::class, 'profileUser'])->name('profile.user');
 Route::get('/profile/{id}/edit', [UserController::class, 'edit'])->name('profile.users.edit');
 Route::post('/profile/{id}/update', [UserController::class, 'update'])->name('profile.users.update');
-
-// Checkout
-Route::get('/cart/checkout', [payController::class, 'checkout'])->name('cart.checkout');
-Route::post('/checkout/momo', [payController::class, 'momo'])->name('checkout.momo.order');
 
 // Admin
 Route::group(['middleware' => ['auth','admin']], function () {

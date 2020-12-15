@@ -1253,6 +1253,22 @@
     </div>
     <!-- Page content -->
     <div class="container-fluid mt--7">
+        @if(session()->has('success_msg'))
+        <div class="alert alert-success" role="alert">
+            {{ session()->get('success_msg') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        @endif
+        @if(session()->has('alert_msg'))
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ session()->get('alert_msg') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        @endif
         <div class="row">
             @foreach($users as $user)
             <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
@@ -1260,17 +1276,17 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
-                                @if($user->provider != '')
-                                <div class="imgs">
-                                    <img src="{{ Auth::user()->avatar }}" class="rounded-circle">
-                                </div>
-                                @elseif($user->avatar != '')
+                                @if($user->avatar != '' & $user->provider == '')
                                 <div class="imgs" style="width: 500px; height: 70px;">
                                     <img src="{{ asset('/img/user/'.$user->avatar) }}" class="img-thumbnail">
                                 </div>
-                                @else
+                                @elseif($user->avatar == '')
                                 <div class="imgs">
-                                    <img class="rounded-circle" src="{{ asset('/img/download.png') }}" alt="">
+                                    <img class="rounded" src="{{ asset('/img/download.png') }}" alt="">
+                                </div>
+                                @elseif($user->provider != '')
+                                <div class="imgs">
+                                    <img src="{{ Auth::user()->avatar }}" class="rounded-circle">
                                 </div>
                                 @endif
                             </div>
@@ -1290,6 +1306,15 @@
                             </h2>
                         </div>
                     </div>
+                    <div class="card text-center">
+                        <div class="card-footer text-muted">
+                            Đổi Mật Khẩu
+                        </div>
+                        <div class="card-body">
+                            <a href="{{route('reset.password.user',$user->id)}}" class="btn btn-primary">Đổi Mật
+                                Khẩu</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-xl-8 order-xl-1">
@@ -1300,7 +1325,8 @@
                                 <h3 class="mb-0">Thông Tin</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{route('profile.users.edit',$user->id)}}" class="btn btn-sm btn-primary">Chỉnh sửa</a>
+                                <a href="{{route('profile.users.edit',$user->id)}}" class="btn btn-sm btn-primary">Chỉnh
+                                    sửa</a>
                             </div>
                         </div>
                     </div>
@@ -1310,14 +1336,20 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="input-username" style="color:black">Họ và Tên</label>
-                                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="{{$user->name}}">
+                                        <label class="form-control-label" for="input-username" style="color:black">Họ và
+                                            Tên</label>
+                                        <input type="text" id="input-username"
+                                            class="form-control form-control-alternative" placeholder="Username"
+                                            value="{{$user->name}}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="input-email" style="color:black">Email</label>
-                                        <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="jesse@example.com" value="{{$user->email}}">
+                                        <label class="form-control-label" for="input-email"
+                                            style="color:black">Email</label>
+                                        <input type="email" id="input-email"
+                                            class="form-control form-control-alternative"
+                                            placeholder="jesse@example.com" value="{{$user->email}}" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -1329,16 +1361,21 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="input-address" style="color:black">Địa chỉ</label>
-                                        <input id="input-address" class="form-control form-control-alternative" placeholder="Địa chỉ nhà" value="{{$user->address}}" type="text">
+                                        <label class="form-control-label" for="input-address" style="color:black">Địa
+                                            chỉ</label>
+                                        <input id="input-address" class="form-control form-control-alternative"
+                                            placeholder="Địa chỉ nhà" value="{{$user->address}}" type="text" readonly>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="input-username" style="color:black">Số điện thoại</label>
-                                        <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Số điện thoại" value="{{$user->phone}}">
+                                        <label class="form-control-label" for="input-username" style="color:black">Số
+                                            điện thoại</label>
+                                        <input type="text" id="input-username"
+                                            class="form-control form-control-alternative" placeholder="Số điện thoại"
+                                            value="{{$user->phone}}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">

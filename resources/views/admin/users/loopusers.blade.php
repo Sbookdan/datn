@@ -30,9 +30,9 @@
                             @if($row->provider != '')
                             <img src="{{$row->avatar}}" class="rounded-circle">
                             @elseif($row->avatar != '')
-                            <img src="{{ asset('/img/user/'.$row->avatar) }}" class="img-thumbnail">
+                            <img src="{{ asset('/img/user/'.$row->avatar) }}" class="rounded" width="100px">
                             @else
-                            <img class="rounded-circle" src="{{ asset('/img/download.png') }}" alt="">
+                            <img class="rounded" src="{{ asset('/img/download.png') }}" alt="" width="100px">
                             @endif
                         </td>
                         <td>

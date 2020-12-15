@@ -12,7 +12,7 @@ class usersController extends Controller
     public function index() {
         $ds = users::all();
         return view('admin.users.index', compact('ds'));
-    }   
+    } 
     public function create() {
         return view('admin.users.create');
     }

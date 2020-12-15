@@ -1,101 +1,89 @@
-@extends('layouts.app')
+@extends('layouts.layout')
+
+@section('title', 'Đổi Mật Khẩu')
+
+@section('style')
+<style>
+.contact100-form-title {
+    font-family: Montserrat-Bold;
+    font-size: 30px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    width: 100%;
+    min-height: 128px;
+    position: relative;
+    z-index: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    overflow: hidden;
+    padding: 30px 15px 30px 15px;
+}
+</style>
+@stop
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Reset Password New</h2>
-            </div>
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
+<section class="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="form-login">
+                    <div class="contact100-form-title">
+                        <span>Đổi Mật Khẩu</span>
+                    </div>
                     @foreach($users as $user)
-                    <li class="breadcrumb-item"><a href="{{ route('users.edit' ,$user->id) }}"> Edit {{$user->id}}
-                    {{$user->name}}
-                    </a></li>
-                    @endforeach
-                    <li class="breadcrumb-item active" aria-current="page"> Name :
-                        @foreach($users as $user)
-                        {{$user->name}}
-                        @endforeach
-                    </li>
-                </ol>
-            </nav>
-        </div>
-        <div class="col-md-8">
-            <div class="card">
-
-                <div class="card-body">
-                    @foreach($users as $user)
-                    <form method="POST" action="{{ route('password.update.new', $user->id )}}"
+                    <form method="POST" action="{{route('reset.password.update',$user->id)}}" id="apply-inquiry"
                         enctype="multipart/form-data">
                         @csrf
-
-                        @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Tài khoản</label>
+                            <input id="email" type="email" class="form-control" name="email" value="{{ $user->email }}"
+                                required autocomplete="email" readonly>
+                            @error('message')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-                        @endif
-
-                        <div class="form-group row">
-                            <label for="email"
-                                class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ $user->email }}" required autocomplete="email" readonly>
-                            </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Mật khẩu Hiện Tại</label>
+                            <input id="password" type="password" class="form-control" name="password"
+                                autocomplete="new-password">
+                            @error('message')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Password Cũ</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password"
-                                    class="form-control @error('password') is-invalid @enderror" name="password"
-                                    required autocomplete="new-password">
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Mật khẩu Mới</label>
+                            <input id="password" type="password" class="form-control" name="newPassword"
+                                autocomplete="new-password">
+                            @error('message')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Password Mới</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password"
-                                    class="form-control @error('password') is-invalid @enderror" name="newPassword"
-                                    required autocomplete="new-password">
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Nhập Lại Mật Khẩu</label>
+                            <input id="password-confirm" type="password" class="form-control"
+                                name="password_confirmation" autocomplete="new-password">
                         </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm"
-                                class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control"
-                                    name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Reset Password New
-                                </button>
-                            </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block" id="btnn">
+                                {{ __('Đăng Nhập') }}
+                            </button>
                         </div>
                     </form>
                     @endforeach
@@ -103,5 +91,5 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection

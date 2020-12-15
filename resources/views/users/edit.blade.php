@@ -1260,7 +1260,7 @@
             @csrf
             <div class="row">
                 @if ($errors->any())
-                <div class="alert alert-danger" style="text-align: left;">
+                <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>

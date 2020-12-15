@@ -13,9 +13,7 @@ class cart extends Model
         'id',
         'cart_product_id',
         'cart_user_id',
-        'cart_shipping_fee_id',
-        'number',
-        'total',      
+        'number',     
     ];
     public function products(){
         return $this->belongsTo('App\Models\products','id','cart_product_id');

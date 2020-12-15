@@ -11,7 +11,8 @@ class payment_methods extends Model
     protected $primaryKey='id';
     protected $fillable = [
         'id',
-        'name'      
+        'name',
+        'avatar'     
     ];
     public function pay(){
         return $this->hasMany('App\Models\pay ','pay_payment_methods_id','id');

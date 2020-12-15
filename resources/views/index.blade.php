@@ -15,7 +15,7 @@
 
             </div>
         </div>
-        <section class="catalog-books" style="margin-bottom:100px">
+        <section class="catalog-books">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 menu-4">
@@ -44,7 +44,7 @@
                                             @endforeach
                                         </ul>
 
-                                        <span class="badge badge-primary badge-pill">22=</span>
+                                        <span class="badge badge-primary badge-pill">22</span>
 
                                     </li>
                                     @endforeach

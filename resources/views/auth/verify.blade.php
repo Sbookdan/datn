@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('xác minh địa chỉ email của bạn trước khi tiếp tục') }}</div>
+                <div class="card-header">{{ __('Xác minh địa chỉ email của bạn trước khi tiếp tục') }}</div>
 
                 <div class="card-body">
                     @if (session('resent'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('Trước khi tiếp tục, vui lòng kiểm tra email của bạn để biết liên kết xác minh.') }}
+                    {{ __('Trước khi tiếp tục, vui lòng kiểm tra email của bạn để xác minh email.') }}
                     {{ __('Nếu bạn không nhận được email bấm vào đây để để nhận được email.') }}
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
