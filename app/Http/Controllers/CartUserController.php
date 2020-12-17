@@ -10,7 +10,7 @@ use App\Models\shipping_fee;
 use App\Models\pay;
 use App\Models\payment_methods;
 use App\Models\cart;
-use Illuminate\Support\Facades\Input;
+use Carbon\Carbon;
 
 class CartUserController extends Controller
 {
@@ -22,14 +22,15 @@ class CartUserController extends Controller
             'cart_product_id' => $product->id,
             'number' => 1,
             'cart_user_id' => auth()->user()->id,
-            'total'
+            'price' => $product->price,
         );
         Cart::create($cart);
         return redirect()->route('products')->with('success_msg', 'Bạn Đã Thêm Sản Phẩm Vào Giỏ Hàng!!!');
     }
     public function cart(Request $request)
     {
-        $products = Product::find($request->id);
+        $pay = pay::all();
+        $products = Product::where("sale", '>=', 50)->orderBy('id')->take(6)->get();
         $carts = DB::table('cart')
                 ->join('products', 'products.id', '=', 'cart.cart_product_id')
                 ->join('users', 'users.id', '=', 'cart.cart_user_id')
@@ -38,49 +39,30 @@ class CartUserController extends Controller
                     'products.id as product_id',
                     'products.name as product_name',
                     'products.price as product_price',
-                    'products.avatar as product_avatar'
+                    'products.avatar as product_avatar',
+                    'products.sale as product_sale',
                 )
                 ->where('cart_user_id', '=', auth()->user()->id)
                 ->get();
-        if (Auth::user()->id) {
-            $total = DB::table('cart')
-                        ->sum('number')* 60;
-            // if($carts->cart_product_id == $products->id) {
-            //     $total = $carts->product_price * $carts->number;
-            // }
-        }
-        $this->carts['carts'] = $carts;
-        $this->total['total'] = $total;
 
-        return view('cart.cartpay', $this->carts, $this->total);
+        $this->carts['carts'] = $carts;
+
+        return view('cart.cartpay',compact('pay','products'), $this->carts);
     }
     
     public function remove(Request $request)
-    {   
+    {
         $cart = Cart::find($request->id);
         $cart ->delete($request->id);
         return redirect()->route('cart.index')->with('success_msg', 'Bạn Đã Xóa Sản Phẩm');
     }
-// .....
-    public function update(Request $request)
-    {
-        \Cart::update(
-            $request->id,
-            array(
-                'quantity' => array(
-                    'relative' => false,
-                    'value' => $request->quantity
-                ),
-            )
-        );
-        return redirect()->route('cart.index')->with('success_msg', 'Cập Nhật Giỏ Hàng Thành Công');
-    }
+    // .....
     public function clear()
     {
         \Cart::clear();
         return redirect()->route('cart.index')->with('success_msg', 'Bạn Đã Xóa Hết Sản Phẩm Trong Giỏ Hàng');
     }
-// .....
+    // .....
     public function checkoutupdate(Request $request)
     {
         $carts = DB::table('cart')
@@ -102,50 +84,46 @@ class CartUserController extends Controller
         return redirect()->with('success_msg', 'Bạn Đã Cập Nhật Sản Phẩm Thành Công!!!');
     }
 
-    public function checkout(Request $request)
+    public function checkout(Request $request, $id)
     {
+        $cart_update = array(
+            'number'        => $request->input('number_before'),
+            'updated_at'    => Carbon::now(),
+        );
+
+        Cart::where('id', '=', $id)->update($cart_update);
+
         $shipping_fee = shipping_fee::all();
         $payment_methods = payment_methods::all();
-        $carts = DB::table('cart')
-                ->join('products', 'products.id', '=', 'cart.cart_product_id')
-                ->select(
-                    'cart.*',
-                    'products.id as product_id',
-                    'products.price as product_price'
-                )
-                ->where('cart_user_id', '=', auth()->user()->id)
-                ->get();
+        $totalproduct = cart::all();
 
-        if (Auth::user()->id) {
-            $totalproduct = DB::table('cart')
-                        ->sum('number');
-            // if($cart->)
-        }
-        $this->totalproduct['totalproduct'] = $totalproduct;
+        $detal_cart = DB::table('pay')
+                        ->join('cart', 'cart.id', '=', 'pay.pay_cart_id')
+                        ->select(
+                            'pay.*',
+                            'cart.number as cart_number',
+                            'cart.price as cart_price',
+                        )
+                        ->get();
 
-        return view('cart.payment', compact('shipping_fee', 'payment_methods'), $this->totalproduct);
+        $this->detal_cart['detal_cart'] = $detal_cart;
+
+        return view('cart.payment', compact('shipping_fee', 'payment_methods','totalproduct'),$this->detal_cart);
     }
     public function paycart(Request $request)
     {
         $payment_methods = payment_methods::find($request->id);
         $cart = Cart::find($request->id);
-        $payment = DB::table('pay')
-                    ->join('cart', 'cart.id' , '=' , 'pay.pay_cart_id')
-                    ->join('users', 'users.id', '=', 'pay.pay_user_id')
-                    ->join('payment_methods' , 'payment_methods.id' , '=', 'pay.pay_payment_methods_id')
-                    ->join('shipping_fee', 'shipping_fee.id', '=' , 'pay.pay_shipping_fee_id')
-                    ->select(
-                        'pay.*',
-                        'cart.id as cart_id',
-                        'shipping_fee.id as shipping_fee_id',
-                        'payment_methods.id as payment_methods_id',
-                        'users.id as user_id'
-                    )
-                    ->where('cart_user_id', '=', auth()->user()->id)
-                    ->get();
+
+        $total_price_cart = $request->total_all;
+        $tid_cart_pay = $request->id_cart;
+
         $form_payment = array(
-            'pay_payment_methods_id' => $payment_methods->id,
-            'pay_user_id' => auth()->user()->id,
+            'pay_payment_methods_id'    => $payment_methods->id,
+            'pay_user_id'               => auth()->user()->id,
+            'total'                     => $total_price_cart,
+            'pay_cart_id'               => $tid_cart_pay,
+            'updated_at' => Carbon::now(),
         );
         pay::where('cart_user_id', '=', auth()->user()->id)->create($form_payment);
 

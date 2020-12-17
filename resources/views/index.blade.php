@@ -71,11 +71,7 @@
                                             </div>
                                         </a>
                                     </div>
-
                                     @endforeach
-
-
-
                                 </div>
                                 <div>{!! $kesach->links("pagination::bootstrap-4") !!}</div>
                             </div>
@@ -465,7 +461,7 @@
                                     <img src="{{ asset('img/product/'.$sbc->avatar) }}" alt="" srcset="">
                                 </div>
                                 <div class="books-sell-down text-center">
-                                    <h3>{{$sbc->name}}</h3>
+                                    <h3 style="font-size:17px">{{$sbc->name}}</h3>
                                     <p>{{$sbc->author}}</p>
                                 </div>
                             </a>

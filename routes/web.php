@@ -65,17 +65,13 @@ Route::get('/author-{author}', [langdingpageController::class, 'author'])->name(
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 // cart
-Route::post('/update', [cartController::class, 'update'])->name('cart.update');
-Route::post('/remove', [cartController::class, 'remove'])->name('cart.remove');
-Route::post('/clear', [cartController::class, 'clear'])->name('cart.clear');
-
-// cart 2
 Route::get('/cartuser', [CartUserController::class, 'cart'])->name('cart.index');
 Route::post('/add_to_cart', [CartUserController::class, 'addtoCart'])->name('cart.store')->middleware('verified');
 Route::post('/remove', [CartUserController::class, 'remove'])->name('cart.remove');
+Route::post('/update', [CartUserController::class, 'update'])->name('cart.update');
 
-// checkout 2
-Route::get('/cart/checkout/{id}', [CartUserController::class, 'checkout'])->name('cart.checkout');
+// checkout
+Route::get('/cart/{id}/checkout', [CartUserController::class, 'checkout'])->name('cart.id.checkout');
 Route::post('/checkout/paycart', [CartUserController::class, 'paycart'])->name('checkout.pay.cart');
 
 // Send Email

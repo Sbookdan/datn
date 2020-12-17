@@ -13,18 +13,24 @@ class cart extends Model
         'id',
         'cart_product_id',
         'cart_user_id',
-        'number',     
+        'number',
+        'price',
     ];
-    public function products(){
-        return $this->belongsTo('App\Models\products','id','cart_product_id');
+
+    public function products()
+    {
+        return $this->belongsTo('App\Models\products', 'id', 'cart_product_id');
     }
-    public function users(){
-        return $this->belongsTo('App\Models\users','id','cart_user_id');
+    public function users()
+    {
+        return $this->belongsTo('App\Models\users', 'id', 'cart_user_id');
     }
-    public function shipping_fee(){
-        return $this->belongsTo('App\Models\shipping_fee','id','cart_shipping_fee_id');
+    public function shipping_fee()
+    {
+        return $this->belongsTo('App\Models\shipping_fee', 'id', 'cart_shipping_fee_id');
     }
-    public function pay(){
-        return $this->hasMany('App\Models\pay ','pay_cart_id','id');
+    public function pay()
+    {
+        return $this->hasMany('App\Models\pay ', 'pay_cart_id', 'id');
     }
 }

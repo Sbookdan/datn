@@ -14,6 +14,7 @@ class pay extends Model
         'pay_user_id',
         'pay_cart_id',
         'pay_payment_methods_id',
+        'total',
         'token',       
     ];
     public function users(){

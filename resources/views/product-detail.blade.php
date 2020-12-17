@@ -97,6 +97,7 @@
                                         <form action="{{ route('cart.store') }}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" value="{{ $product->id }}" id="id" name="id">
+                                            <input type="hidden" value="{{ $product->price }}" id="price" name="price">
                                             <div class="row">
                                                 <button class="button" class="tooltip-test"
                                                     style="vertical-align:middle" title="Mua Sách">
